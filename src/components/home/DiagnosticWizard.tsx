@@ -92,9 +92,40 @@ export const DiagnosticWizard: React.FC = () => {
 Merci de me rappeler pour organiser l'intervention.`;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch('https://formsubmit.co/ajax/excel.services959@yahoo.fr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `[DIAGNOSTIC EXPRESS] ${formData.contactCompany || formData.contactName} - ${nuisanceOptions.find(o => o.id === formData.nuisanceType)?.title}`,
+          _template: 'table',
+          _captcha: 'false',
+          Demandeur: formData.contactName,
+          Entreprise: formData.contactCompany,
+          Telephone_Direct: formData.contactPhone,
+          Email_Professionnel: formData.contactEmail || 'Non renseigne',
+          Etablissement: establishmentOptions.find(o => o.id === formData.establishmentType)?.title,
+          Menace_ou_Besoin: nuisanceOptions.find(o => o.id === formData.nuisanceType)?.title,
+          Niveau_Urgence: urgencyOptions.find(o => o.id === formData.urgencyLevel)?.title,
+          Localisation_Site: formData.siteLocation || 'Pointe-Noire',
+          Details_Complementaires: formData.additionalDetails || 'Aucun detail specifique.'
+        })
+      });
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error('Erreur diagnostic express:', err);
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const severity = calculateSeverity();
@@ -456,10 +487,20 @@ Merci de me rappeler pour organiser l'intervention.`;
 
                       <button
                         type="submit"
-                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
+                        disabled={isSubmitting}
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary-500 hover:bg-primary-600 disabled:opacity-60 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
                       >
-                        <Send className="w-3.5 h-3.5" />
-                        <span>Valider et Demander le Rappel</span>
+                        {isSubmitting ? (
+                          <>
+                            <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            <span>Envoi en cours...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-3.5 h-3.5" />
+                            <span>Valider et Demander le Rappel</span>
+                          </>
+                        )}
                       </button>
                     </div>
                   </form>

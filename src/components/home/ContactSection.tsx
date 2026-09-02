@@ -14,6 +14,7 @@ import {
 import { COMPANY_INFO } from '../../data/companyInfo';
 
 export const ContactSection: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -25,9 +26,36 @@ export const ContactSection: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      await fetch('https://formsubmit.co/ajax/excel.services959@yahoo.fr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `[DEMANDE DE DEVIS] ${formData.company || formData.name} - ${formData.serviceType}`,
+          _template: 'table',
+          _captcha: 'false',
+          Nom_Demandeur: formData.name,
+          Entreprise: formData.company,
+          Telephone_Direct: formData.phone,
+          Email_Professionnel: formData.email,
+          Prestation_Requise: formData.serviceType,
+          Localisation_Site: formData.siteLocation || 'Pointe-Noire',
+          Details_Besoin: formData.message || 'Demande d\'audit et de devis technique sur site.'
+        })
+      });
+      setFormSubmitted(true);
+    } catch (err) {
+      console.error('Erreur transmission devis:', err);
+      setFormSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -210,10 +238,20 @@ export const ContactSection: React.FC = () => {
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 disabled:opacity-60 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95 cursor-pointer"
                   >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>Transmettre la Demande</span>
+                    {isSubmitting ? (
+                      <>
+                        <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Envoi en cours...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" />
+                        <span>Transmettre la Demande</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
