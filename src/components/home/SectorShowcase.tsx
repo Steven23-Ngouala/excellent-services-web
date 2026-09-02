@@ -10,7 +10,16 @@ import {
   AlertCircle,
   ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SECTORS_DATA } from '../../data/sectorsData';
+
+const SECTOR_IMAGES: Record<string, string> = {
+  'oil-gas': '/images/sectors/sec_oil_gas.jpg',
+  'catering': '/images/sectors/sec_catering_haccp.jpg',
+  'logistics': '/images/sectors/sec_port_logistics.jpg',
+  'health': '/images/sectors/sec_health_clinic.jpg',
+  'commercial': '/images/sectors/sec_commercial_tertiary.jpg',
+};
 
 export const SectorShowcase: React.FC = () => {
   const [activeSectorId, setActiveSectorId] = useState<string>(SECTORS_DATA[0].id);
@@ -75,21 +84,32 @@ export const SectorShowcase: React.FC = () => {
           })}
         </div>
 
-        {/* Active Sector Presentation */}
+        {/* Active Sector Presentation Card with Photo Preview */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-border shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
             
-            {/* Left Info Column */}
+            {/* Left Info & Photo Column */}
             <div className="lg:col-span-6 space-y-4">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary-600 bg-primary-50 px-2.5 py-0.5 rounded-full border border-primary-200">
-                    Référentiel
+              
+              {/* Sector Photo Banner */}
+              <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-neutral-border shadow-2xs group">
+                <img 
+                  src={SECTOR_IMAGES[activeSector.id] || SECTOR_IMAGES['oil-gas']} 
+                  alt={activeSector.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                  <span className="font-bold bg-primary-500/90 backdrop-blur-sm px-2.5 py-1 rounded-lg">
+                    {activeSector.name}
                   </span>
-                  <span className="text-xs text-neutral-500 font-mono">
+                  <span className="font-mono text-[11px] bg-black/60 px-2 py-0.5 rounded">
                     {activeSector.standardCompliance}
                   </span>
                 </div>
+              </div>
+
+              <div>
                 <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-dark">
                   {activeSector.name}
                 </h3>
@@ -139,13 +159,13 @@ export const SectorShowcase: React.FC = () => {
                   <span className="text-xs text-neutral-500 font-medium">
                     Déploiement sur mesure.
                   </span>
-                  <a
-                    href="#contact"
+                  <Link
+                    to="/contact"
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-xs transition-all"
                   >
                     <span>Demander une Cotation</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
