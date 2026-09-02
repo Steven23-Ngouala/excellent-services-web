@@ -9,7 +9,6 @@ import {
   ShieldCheck, 
   PhoneCall, 
   Building2,
-  ExternalLink,
   Navigation
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
@@ -308,34 +307,22 @@ export const ContactSection: React.FC = () => {
         {/* Large Centered Full-Width Google Maps Section */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-border shadow-xl space-y-5">
           
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-neutral-border text-center sm:text-left">
-            <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-2xl bg-primary-50 border border-primary-200 text-primary-600 flex items-center justify-center flex-shrink-0 shadow-2xs">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-primary-600 bg-primary-50 px-2.5 py-0.5 rounded-full mb-1 border border-primary-100">
-                  <Navigation className="w-3 h-3" />
-                  <span>Siège Opérationnel & Base Technique</span>
-                </div>
-                <h3 className="font-heading font-extrabold text-lg sm:text-xl text-dark">
-                  Localisation à Pointe-Noire (Tchimbamba)
-                </h3>
-                <p className="text-xs text-neutral-500 mt-0.5">
-                  {COMPANY_INFO.address}, {COMPANY_INFO.city} — République du Congo
-                </p>
-              </div>
+          <div className="flex items-center gap-3.5 pb-4 border-b border-neutral-border">
+            <div className="w-12 h-12 rounded-2xl bg-primary-50 border border-primary-200 text-primary-600 flex items-center justify-center flex-shrink-0 shadow-2xs">
+              <MapPin className="w-6 h-6" />
             </div>
-
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${COMPANY_INFO.address}, ${COMPANY_INFO.city}, République du Congo`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-dark hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex-shrink-0"
-            >
-              <span>Ouvrir l'Itinéraire sur Google Maps</span>
-              <ExternalLink className="w-4 h-4 text-primary-400" />
-            </a>
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-primary-600 bg-primary-50 px-2.5 py-0.5 rounded-full mb-1 border border-primary-100">
+                <Navigation className="w-3 h-3" />
+                <span>Siège Opérationnel & Base Technique</span>
+              </div>
+              <h3 className="font-heading font-extrabold text-lg sm:text-xl text-dark">
+                Localisation à Pointe-Noire (Tchimbamba)
+              </h3>
+              <p className="text-xs text-neutral-500 mt-0.5">
+                {COMPANY_INFO.address}, {COMPANY_INFO.city} — République du Congo
+              </p>
+            </div>
           </div>
           
           {/* Immersive Centered Google Maps Embed iframe */}
