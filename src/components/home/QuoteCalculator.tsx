@@ -5,7 +5,6 @@ import {
   FileCheck2, 
   ShieldCheck,
   Send,
-  Clock,
   Sparkles
 } from 'lucide-react';
 import { QuoteCalculationState } from '../../types';
