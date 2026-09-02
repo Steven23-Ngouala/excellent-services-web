@@ -18,10 +18,10 @@ export const COMPANY_INFO = {
   
   // Phones & WhatsApp
   phones: [
-    { label: "Ligne Directe / Urgences", number: "+242 06 667 63 27", raw: "242066676327" },
+    { label: "Ligne Directe / Urgences", number: "+242 06 571 82 74", raw: "242065718274" },
     { label: "Service Commercial & Devis", number: "+242 05 568 13 92", raw: "242055681392" }
   ],
-  whatsappNumber: "242066676327",
+  whatsappNumber: "242065718274",
   whatsappDefaultMsg: "Bonjour EXCELLENT SERVICES, je souhaite solliciter une intervention urgente ou un devis pour nos installations.",
   
   // Emails

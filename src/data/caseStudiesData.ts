@@ -63,7 +63,7 @@ export const FAQ_DATA = [
   },
   {
     question: "Quels sont vos délais d’intervention en cas d’urgence critique (ex: serpent signalé, rupture sanitaire) ?",
-    answer: "Notre cellule d’astreinte est mobilisable 24h/24 et 7j/7. Pour les urgences critiques à Pointe-Noire, nous intervenons sous 1 à 2 heures après votre appel au +242 06 667 63 27."
+    answer: "Notre cellule d’astreinte est mobilisable 24h/24 et 7j/7. Pour les urgences critiques à Pointe-Noire, nous intervenons sous 1 à 2 heures après votre appel au +242 06 571 82 74."
   },
   {
     question: "Les produits utilisés présentent-ils un risque pour le personnel ou les denrées alimentaires ?",
