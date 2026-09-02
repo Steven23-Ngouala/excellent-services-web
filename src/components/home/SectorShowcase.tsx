@@ -10,8 +10,7 @@ import {
   AlertTriangle,
   ArrowRight,
   MessageSquare,
-  Clock,
-  Sparkles
+  Clock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SECTORS_DATA } from '../../data/sectorsData';
@@ -70,30 +69,16 @@ export const SectorShowcase: React.FC = () => {
   };
 
   return (
-    <section id="secteurs" className="py-16 sm:py-24 bg-gradient-to-b from-neutral-soft/60 via-white to-neutral-soft/40 border-t border-neutral-border relative overflow-hidden">
+    <section id="secteurs" className="py-8 sm:py-12 bg-neutral-soft/50 relative overflow-hidden">
       
       {/* Background Subtle Glows */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-qhse-100/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-100/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-qhse-100/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-primary-500" />
-            <span>Solutions Métiers Spécifiques</span>
-          </div>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-dark tracking-tight">
-            Une Ingénierie Adaptée aux Exigences de votre Secteur
-          </h2>
-          <p className="text-xs sm:text-sm text-neutral-muted mt-2.5 leading-relaxed">
-            Chaque environnement industriel impose des contraintes de sécurité et de conformité uniques. Cliquez sur votre secteur pour découvrir nos protocoles certifiés.
-          </p>
-        </div>
-
         {/* 5 Sector Industrial Selector Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 mb-6 sm:mb-8">
           {SECTORS_DATA.map((sector, idx) => {
             const isActive = sector.id === activeSectorId;
             return (

@@ -62,7 +62,7 @@ export const SectorsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16">
+    <div className="pt-24 sm:pt-28 pb-8">
       {/* 5-Slide Animated Hero Banner */}
       <section className="relative text-white py-16 sm:py-24 border-b border-primary-500/40 overflow-hidden bg-dark">
         
