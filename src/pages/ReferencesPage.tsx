@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ClientTrustBar } from '../components/home/ClientTrustBar';
 import { CaseStudies } from '../components/home/CaseStudies';
-import { BrochureModal } from '../components/home/BrochureModal';
 import { 
   Award, 
-  FileText, 
   Flame, 
   Utensils, 
   Anchor, 
-  Building2, 
-  Download
+  Building2
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const REFERENCES_SLIDES = [
   {
@@ -54,7 +50,6 @@ const REFERENCES_SLIDES = [
 
 export const ReferencesPage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -112,25 +107,6 @@ export const ReferencesPage: React.FC = () => {
               {REFERENCES_SLIDES[currentSlide].subtitle}
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3.5 pt-6">
-              <button
-                onClick={() => setIsBrochureOpen(true)}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95 cursor-pointer"
-              >
-                <Download className="w-4 h-4" />
-                <span>Télécharger le Dossier Vendor List (PDF)</span>
-              </button>
-
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs tracking-wider border border-white/20 transition-all backdrop-blur-sm"
-              >
-                <FileText className="w-4 h-4 text-primary-400" />
-                <span>Demander une Attestation de Bonne Fin</span>
-              </Link>
-            </div>
-
           </div>
 
           {/* Interactive 4-References Navigation Pills */}
@@ -170,12 +146,6 @@ export const ReferencesPage: React.FC = () => {
 
       {/* Proven Field Results & Case Studies Component */}
       <CaseStudies />
-
-      {/* Printable Corporate Brochure Modal */}
-      <BrochureModal 
-        isOpen={isBrochureOpen}
-        onClose={() => setIsBrochureOpen(false)}
-      />
     </div>
   );
 };
