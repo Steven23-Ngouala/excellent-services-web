@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
             </div>
           </a>
 
-          {/* Desktop Navigation Links with generous spacing & nowrap */}
+          {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-shrink-0">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
@@ -145,36 +145,38 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
                     <span>{link.name}</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isExpertiseDropdownOpen ? 'rotate-180' : ''}`} />
                     
-                    {/* Dropdown for Expertises */}
+                    {/* Compact, clean, 100% solid Dropdown */}
                     {isExpertiseDropdownOpen && (
-                      <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-xl border border-neutral-border p-3 mt-1 animate-fadeIn z-50">
-                        <div className="text-[10px] font-bold text-neutral-muted uppercase tracking-wider px-3 py-1 border-b border-neutral-border/60 mb-1">
+                      <div className="absolute top-full left-0 w-80 sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-neutral-200 p-3 mt-1 animate-fadeIn z-50 ring-1 ring-black/5">
+                        <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider px-3 py-1 border-b border-neutral-100 mb-1.5">
                           Nos 5 Pôles d'Intervention
                         </div>
-                        {EXPERTISES_DATA.map((exp) => (
-                          <a
-                            key={exp.id}
-                            href={`#expertises`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              if (onSelectExpertise) onSelectExpertise(exp.id);
-                              handleNavClick('#expertises');
-                            }}
-                            className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-primary-50 transition-colors group/item text-left"
-                          >
-                            <div className="mt-0.5 p-1.5 rounded-lg bg-neutral-soft group-hover/item:bg-white transition-colors">
-                              {getExpertiseIcon(exp.id)}
-                            </div>
-                            <div>
-                              <div className="text-xs font-bold text-dark group-hover/item:text-primary-600">
-                                {exp.title}
+                        <div className="space-y-1">
+                          {EXPERTISES_DATA.map((exp) => (
+                            <a
+                              key={exp.id}
+                              href={`#expertises`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (onSelectExpertise) onSelectExpertise(exp.id);
+                                handleNavClick('#expertises');
+                              }}
+                              className="flex items-center gap-3 p-2 rounded-xl hover:bg-primary-50 transition-colors group/item text-left"
+                            >
+                              <div className="p-2 rounded-lg bg-neutral-soft group-hover/item:bg-white transition-colors flex-shrink-0">
+                                {getExpertiseIcon(exp.id)}
                               </div>
-                              <div className="text-[10px] text-neutral-muted line-clamp-1">
-                                {exp.shortDescription}
+                              <div className="flex-1 min-w-0">
+                                <div className="text-xs font-bold text-dark group-hover/item:text-primary-600 truncate">
+                                  {exp.title}
+                                </div>
+                                <div className="text-[11px] text-neutral-500 truncate">
+                                  {exp.shortDescription}
+                                </div>
                               </div>
-                            </div>
-                          </a>
-                        ))}
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

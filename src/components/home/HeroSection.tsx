@@ -32,17 +32,17 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Content Column */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
             
             {/* QHSE Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-qhse-50 border border-qhse-200 text-qhse-800 text-xs sm:text-sm font-bold shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-qhse-50 border border-qhse-200 text-qhse-800 text-xs font-bold shadow-xs">
               <span className="w-2 h-2 rounded-full bg-qhse-500 animate-ping" />
               <ShieldCheck className="w-4 h-4 text-qhse-600" />
               <span>Intervention d'Urgence 24/7 & Protocoles QHSE</span>
             </div>
 
             {/* Title */}
-            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-dark tracking-tight leading-[1.18]">
+            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-dark tracking-tight leading-[1.2]">
               L’Excellence Opérationnelle en <span className="text-primary-500 underline decoration-primary-300 decoration-wavy decoration-2">Hygiène 3D</span>, Assainissement & Solutions QHSE.
             </h1>
 
@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Reassurance Tags */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 pt-3 text-xs font-semibold text-neutral-600">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 pt-2 text-xs font-semibold text-neutral-600">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-qhse-600 flex-shrink-0" />
                 <span>FDS & Fiches Techniques</span>
@@ -91,19 +91,19 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              <div className="bg-gradient-to-br from-dark to-dark-card rounded-3xl p-6 sm:p-7 text-white shadow-xl border border-primary-500/40 relative overflow-hidden space-y-5">
+              <div className="bg-gradient-to-br from-dark to-dark-card rounded-3xl p-5 sm:p-6 text-white shadow-xl border border-primary-500/40 relative overflow-hidden space-y-4">
                 {/* Glow */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-primary-500/15 rounded-full blur-2xl pointer-events-none" />
 
                 {/* Card Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-dark-border">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center border border-primary-400">
+                <div className="flex items-center justify-between pb-3.5 border-b border-dark-border">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-white p-1 flex items-center justify-center border border-primary-400 flex-shrink-0">
                       <img src="/logo.jpeg" alt="EXCELLENT SERVICES" className="w-full h-full object-contain" />
                     </div>
                     <div>
-                      <div className="font-heading font-bold text-sm tracking-wide text-white">EXCELLENT SERVICES</div>
-                      <div className="text-[10px] text-primary-300 font-mono">Pointe-Noire • République du Congo</div>
+                      <div className="font-heading font-bold text-xs sm:text-sm tracking-wide text-white leading-tight">EXCELLENT SERVICES</div>
+                      <div className="text-[10px] text-primary-300 font-mono mt-0.5">Pointe-Noire • République du Congo</div>
                     </div>
                   </div>
                   <Badge variant="qhse" size="sm">
@@ -111,55 +111,55 @@ export const HeroSection: React.FC = () => {
                   </Badge>
                 </div>
 
-                {/* Focus areas with airy spacing */}
+                {/* Focus areas with distinct padding and clear line heights */}
                 <div className="space-y-2.5">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                    <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors gap-3">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <div className="p-2 rounded-lg bg-primary-500/20 text-primary-400 flex-shrink-0">
                         <Crosshair className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-xs font-bold text-white">Lutte Antiparasitaire 3D</div>
-                        <div className="text-[11px] text-neutral-400">Dératisation • Désinsectisation • Désinfection</div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-white leading-snug">Lutte Antiparasitaire 3D</div>
+                        <div className="text-[11px] text-neutral-400 mt-0.5 leading-snug">Dératisation • Désinsectisation • Désinfection</div>
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-qhse-400 bg-qhse-900/40 px-2 py-0.5 rounded">100% ACTIF</span>
+                    <span className="text-[9px] font-mono font-bold text-qhse-400 bg-qhse-900/40 px-2 py-0.5 rounded flex-shrink-0">100% ACTIF</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                    <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors gap-3">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <div className="p-2 rounded-lg bg-accent-copper/20 text-accent-copper flex-shrink-0">
                         <AlertTriangle className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-xs font-bold text-white">Déserpentisation Sécurisée</div>
-                        <div className="text-[11px] text-neutral-400">Barrières répulsives & Périmètres sensibles</div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-white leading-snug">Déserpentisation Sécurisée</div>
+                        <div className="text-[11px] text-neutral-400 mt-0.5 leading-snug">Barrières répulsives & Périmètres sensibles</div>
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-amber-400 bg-amber-900/40 px-2 py-0.5 rounded">URGENCE 24/7</span>
+                    <span className="text-[9px] font-mono font-bold text-amber-400 bg-amber-900/40 px-2 py-0.5 rounded flex-shrink-0">URGENCE 24/7</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                    <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors gap-3">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <div className="p-2 rounded-lg bg-qhse-500/20 text-qhse-400 flex-shrink-0">
                         <FileCheck className="w-4 h-4" />
                       </div>
-                      <div>
-                        <div className="text-xs font-bold text-white">Bâches à Eau & Assainissement</div>
-                        <div className="text-[11px] text-neutral-400">Curage • Hydrocurage • Analyses bactériologiques</div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold text-white leading-snug">Bâches à Eau & Assainissement</div>
+                        <div className="text-[11px] text-neutral-400 mt-0.5 leading-snug">Curage • Hydrocurage • Analyses d'eau</div>
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-blue-400 bg-blue-900/40 px-2 py-0.5 rounded">CONFORME OMS</span>
+                    <span className="text-[9px] font-mono font-bold text-blue-400 bg-blue-900/40 px-2 py-0.5 rounded flex-shrink-0">CONFORME OMS</span>
                   </div>
                 </div>
 
                 {/* Bottom Card Footer */}
-                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between text-xs">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between text-xs gap-3">
                   <div>
-                    <div className="font-bold text-primary-200">Interventions Complexes & Offshore</div>
-                    <div className="text-[10px] text-neutral-400">Barges, FPSO, Terminaux & Bases de forage</div>
+                    <div className="font-bold text-primary-200 leading-snug">Interventions Complexes & Offshore</div>
+                    <div className="text-[10px] text-neutral-400 mt-0.5 leading-snug">Barges, FPSO, Terminaux & Bases pétrolières</div>
                   </div>
-                  <div className="flex -space-x-1.5">
+                  <div className="flex -space-x-1.5 flex-shrink-0">
                     <div className="w-6 h-6 rounded-full bg-primary-600 flex items-center justify-center text-white border-2 border-dark" title="Pétrole">
                       <Flame className="w-3 h-3" />
                     </div>
@@ -174,14 +174,14 @@ export const HeroSection: React.FC = () => {
 
               </div>
 
-              {/* Floating Badge */}
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-3 shadow-lg border border-neutral-border flex items-center gap-2.5 hidden sm:flex">
-                <div className="p-2 rounded-xl bg-qhse-100 text-qhse-700">
+              {/* Floating Badge placed cleanly without overlap */}
+              <div className="mt-3 bg-white rounded-2xl p-2.5 sm:p-3 shadow-md border border-neutral-border flex items-center gap-2.5 max-w-max">
+                <div className="p-1.5 sm:p-2 rounded-xl bg-qhse-100 text-qhse-700 flex-shrink-0">
                   <Award className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-dark">+15 Ans d'Expérience</div>
-                  <div className="text-[10px] text-neutral-muted">Pointe-Noire, Congo</div>
+                  <div className="text-xs font-bold text-dark leading-tight">+15 Ans d'Expérience</div>
+                  <div className="text-[10px] text-neutral-muted leading-tight mt-0.5">Pointe-Noire, Congo</div>
                 </div>
               </div>
 
@@ -191,7 +191,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* 4 Animated Key Industrial Metrics */}
-        <div className="mt-14 pt-8 border-t border-neutral-border grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="mt-12 sm:mt-14 pt-8 border-t border-neutral-border grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {COMPANY_INFO.metrics.map((metric, idx) => (
             <div 
               key={idx}
