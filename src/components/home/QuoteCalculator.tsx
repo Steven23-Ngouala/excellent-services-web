@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Calculator, 
   Check, 
   FileCheck2, 
   ShieldCheck,
