@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ContactSection } from '../components/home/ContactSection';
-import { QuoteCalculator } from '../components/home/QuoteCalculator';
 import { Mail, PhoneCall, ShieldCheck, Clock, MapPin } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 
@@ -138,10 +137,7 @@ export const ContactPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Quote Calculator Component (Without WhatsApp) */}
-      <QuoteCalculator />
-
-      {/* Formal Contact Section Component (Without WhatsApp) */}
+      {/* Formal Contact Section Component (Form + Legal details + Google Map) */}
       <ContactSection />
     </div>
   );
