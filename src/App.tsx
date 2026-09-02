@@ -7,6 +7,7 @@ import { EmergencyFab } from './components/layout/EmergencyFab';
 
 // Dedicated Pages
 import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
 import { ExpertisesPage } from './pages/ExpertisesPage';
 import { SectorsPage } from './pages/SectorsPage';
 import { ReferencesPage } from './pages/ReferencesPage';
@@ -25,6 +26,8 @@ export const App: React.FC = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/a-propos" element={<AboutPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/expertises" element={<ExpertisesPage />} />
             <Route path="/secteurs" element={<SectorsPage />} />
             <Route path="/references" element={<ReferencesPage />} />
