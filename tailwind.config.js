@@ -51,8 +51,8 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['Syne', 'Montserrat', 'sans-serif'],
-        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        heading: ['Montserrat', 'Plus Jakarta Sans', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'industrial': '0 4px 20px -2px rgba(31, 21, 19, 0.08), 0 2px 6px -1px rgba(31, 21, 19, 0.04)',
