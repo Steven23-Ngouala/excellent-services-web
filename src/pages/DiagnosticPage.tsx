@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DiagnosticWizard } from '../components/home/DiagnosticWizard';
 import { QuoteCalculator } from '../components/home/QuoteCalculator';
-import { Clock, ShieldAlert, PhoneCall, ShieldCheck, CheckCircle2, Calculator } from 'lucide-react';
+import { Clock, PhoneCall, ShieldCheck, CheckCircle2, Calculator } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 
 const DIAGNOSTIC_SLIDES = [
