@@ -6,7 +6,6 @@ import {
   Clock, 
   Menu, 
   X, 
-  MessageSquare,
   AlertCircle
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
@@ -127,16 +126,6 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop Right CTAs */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0 ml-4">
-            <a
-              href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(COMPANY_INFO.whatsappDefaultMsg)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-qhse-500/30 text-qhse-700 bg-qhse-50 hover:bg-qhse-500 hover:text-white text-xs font-bold transition-all shadow-2xs whitespace-nowrap"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>WhatsApp</span>
-            </a>
-
             <Link
               to="/contact"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold tracking-wide uppercase transition-all shadow-xs active:scale-95 whitespace-nowrap"
@@ -197,12 +186,11 @@ export const Navbar: React.FC = () => {
               </Link>
 
               <a
-                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(COMPANY_INFO.whatsappDefaultMsg)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-qhse-500 text-white text-xs font-bold"
+                href={`tel:${COMPANY_INFO.phones[0].raw}`}
+                className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-dark text-white text-xs font-bold"
               >
-                <span>WhatsApp Astreinte : {COMPANY_INFO.phones[0].number}</span>
+                <PhoneCall className="w-3.5 h-3.5 text-primary-400" />
+                <span>Astreinte 24/7 : {COMPANY_INFO.phones[0].number}</span>
               </a>
             </div>
           </div>
