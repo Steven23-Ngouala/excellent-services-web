@@ -304,14 +304,26 @@ export const QuoteCalculator: React.FC = () => {
               </div>
 
               {isCalculated ? (
-                <div className="p-3 rounded-xl bg-qhse-900/60 border border-qhse-500 text-center space-y-1 animate-fadeIn">
-                  <div className="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Demande transmise avec succès !</span>
+                <div className="p-4 rounded-2xl bg-qhse-900/80 border border-qhse-400 text-center space-y-2.5 animate-fadeIn">
+                  <div className="text-xs font-bold text-emerald-300 flex items-center justify-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-emerald-400" />
+                    <span>Demande transmise à notre boîte mail !</span>
                   </div>
-                  <div className="text-[10px] text-neutral-300">
-                    Notre direction commerciale vous contacte sous 24h ouvrées.
-                  </div>
+                  <p className="text-[11px] text-neutral-200 leading-relaxed">
+                    Votre simulation chiffrée a été envoyée à la direction commerciale. Vous recevrez une cotation formelle sous 24h.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCalculated(false);
+                      setCompanyName('');
+                      setContactEmail('');
+                      setContactPhone('');
+                    }}
+                    className="mt-1 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[10px] font-bold text-white transition-colors border border-white/20 cursor-pointer"
+                  >
+                    Faire une autre configuration
+                  </button>
                 </div>
               ) : (
                 <button
