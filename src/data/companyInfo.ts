@@ -1,6 +1,6 @@
 export const COMPANY_INFO = {
   name: "EXCELLENT SERVICES",
-  legalName: "EXCELLENT SERVICES S.ARL",
+  legalName: "EXCELLENT SERVICES S.A.R.L.",
   tagline: "L'Excellence Opérationnelle en Hygiène 3D, Assainissement & Solutions QHSE",
   shortDesc: "Partenaire certifié QHSE des leaders de l'industrie, du secteur pétrolier offshore/onshore, du maritime, de la logistique et du tertiaire en République du Congo.",
   

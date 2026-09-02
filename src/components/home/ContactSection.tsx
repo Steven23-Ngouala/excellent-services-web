@@ -338,7 +338,7 @@ Merci de nous contacter pour établir la proposition commerciale.`;
                   </div>
                   <div>
                     <div className="font-heading font-bold text-xs text-dark">
-                      EXCELLENT SERVICES S.ARL
+                      EXCELLENT SERVICES S.A.R.L.
                     </div>
                     <div className="text-[10px] text-neutral-500">
                       5 Rue des Martyrs, Tchimbamba Aéroport

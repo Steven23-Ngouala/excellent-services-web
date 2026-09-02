@@ -102,7 +102,7 @@ export const Navbar: React.FC = () => {
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-primary-500 bg-white p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
               <img 
                 src="/logo.jpeg" 
-                alt="Logo EXCELLENT SERVICES S.ARL" 
+                alt="Logo EXCELLENT SERVICES S.A.R.L." 
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = 'none';
