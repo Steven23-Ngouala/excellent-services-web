@@ -41,27 +41,27 @@ export const Navbar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Banner - QHSE Emergency & Direct Line */}
-      <div className="bg-dark text-white text-[11px] py-1.5 px-4 border-b border-dark-border hidden md:block">
-        <div className="max-w-[1700px] mx-auto px-2 sm:px-4 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-1.5 text-qhse-light">
-              <ShieldCheck className="w-3.5 h-3.5 text-qhse-500" />
-              <span className="font-semibold text-emerald-400">Intervention d'Urgence 24/7 & Protocoles Certifiés QHSE</span>
+      <div className="bg-dark text-white text-xs sm:text-[13px] py-2.5 sm:py-3 px-4 sm:px-6 lg:px-8 border-b border-dark-border/80 hidden md:block">
+        <div className="max-w-[1700px] mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-6 lg:gap-8">
+            <div className="flex items-center gap-2 text-qhse-light">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <span className="font-bold text-emerald-400 tracking-wide">Intervention d'Urgence 24/7 & Protocoles Certifiés QHSE</span>
             </div>
-            <div className="flex items-center gap-1.5 text-neutral-300">
-              <Clock className="w-3 h-3 text-primary-400" />
+            <div className="flex items-center gap-2 text-neutral-300">
+              <Clock className="w-3.5 h-3.5 text-primary-400 flex-shrink-0" />
               <span>Pointe-Noire & Plateformes Offshore</span>
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <div className="text-neutral-400 text-[11px]">
-              RCCM : <span className="text-neutral-200 font-mono">{COMPANY_INFO.rccm}</span> | NIU : <span className="text-neutral-200 font-mono">{COMPANY_INFO.niu}</span>
+          <div className="flex items-center gap-6 lg:gap-8">
+            <div className="text-neutral-400 text-xs">
+              RCCM : <span className="text-white font-mono font-semibold bg-white/10 px-1.5 py-0.5 rounded">{COMPANY_INFO.rccm}</span> | NIU : <span className="text-white font-mono font-semibold bg-white/10 px-1.5 py-0.5 rounded">{COMPANY_INFO.niu}</span>
             </div>
             <a 
               href={`tel:${COMPANY_INFO.phones[0].raw}`}
-              className="flex items-center gap-1.5 font-bold text-primary-300 hover:text-white transition-colors"
+              className="flex items-center gap-2 font-bold text-primary-300 hover:text-white transition-colors bg-primary-500/20 px-3 py-1 rounded-lg border border-primary-400/30"
             >
-              <PhoneCall className="w-3 h-3 text-primary-400 animate-pulse" />
+              <PhoneCall className="w-3.5 h-3.5 text-primary-400 animate-pulse" />
               <span>Astreinte Directe : {COMPANY_INFO.phones[0].number}</span>
             </a>
           </div>
