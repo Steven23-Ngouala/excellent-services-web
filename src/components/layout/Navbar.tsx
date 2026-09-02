@@ -40,9 +40,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
     { name: 'Expertises', href: '#expertises', hasDropdown: true },
     { name: 'Secteurs', href: '#secteurs' },
     { name: 'Références', href: '#references' },
-    { name: 'Pourquoi Nous', href: '#valeurs' },
     { name: 'Diagnostic', href: '#diagnostic' },
-    { name: 'Contact & Devis', href: '#contact' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -69,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
       {/* Top Banner - QHSE Emergency & Direct Line */}
       <div className="bg-dark text-white text-[11px] py-1.5 px-4 border-b border-dark-border hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             <div className="flex items-center gap-1.5 text-qhse-light">
               <ShieldCheck className="w-3.5 h-3.5 text-qhse-500" />
               <span className="font-semibold text-emerald-400">Intervention d'Urgence 24/7 & Protocoles Certifiés QHSE</span>
@@ -79,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
               <span>Pointe-Noire & Plateformes Offshore</span>
             </div>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             <div className="text-neutral-400 text-[11px]">
               RCCM : <span className="text-neutral-200 font-mono">{COMPANY_INFO.rccm}</span> | NIU : <span className="text-neutral-200 font-mono">{COMPANY_INFO.niu}</span>
             </div>
@@ -88,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
               className="flex items-center gap-1.5 font-bold text-primary-300 hover:text-white transition-colors"
             >
               <PhoneCall className="w-3 h-3 text-primary-400 animate-pulse" />
-              <span>Astreinte : {COMPANY_INFO.phones[0].number}</span>
+              <span>Astreinte Directe : {COMPANY_INFO.phones[0].number}</span>
             </a>
           </div>
         </div>
@@ -100,13 +99,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-2.5 border-b border-neutral-border' 
           : 'bg-white py-3.5 shadow-2xs'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
           <a 
             href="#accueil" 
             onClick={(e) => { e.preventDefault(); handleNavClick('#accueil'); }}
-            className="flex items-center gap-2.5 group flex-shrink-0"
+            className="flex items-center gap-3 group flex-shrink-0 mr-4"
           >
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-primary-500 bg-white p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
               <img 
@@ -119,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
               />
             </div>
             <div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <span className="font-heading font-extrabold text-base sm:text-lg text-dark tracking-tight leading-none group-hover:text-primary-600 transition-colors">
                   EXCELLENT
                 </span>
@@ -127,28 +126,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
                   SERVICES
                 </span>
               </div>
-              <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-neutral-muted block mt-0.5">
+              <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-neutral-muted block mt-0.5 whitespace-nowrap">
                 Hygiène 3D • QHSE • Assainissement
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center gap-5 lg:gap-6">
+          {/* Desktop Navigation Links with generous spacing & nowrap */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-shrink-0">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 {link.hasDropdown ? (
                   <div 
-                    className="flex items-center gap-1 py-2 text-xs lg:text-sm font-semibold text-neutral-text hover:text-primary-500 transition-colors cursor-pointer"
+                    className="flex items-center gap-1 py-2 text-sm font-semibold text-neutral-text hover:text-primary-500 transition-colors cursor-pointer whitespace-nowrap"
                     onMouseEnter={() => setIsExpertiseDropdownOpen(true)}
                     onMouseLeave={() => setIsExpertiseDropdownOpen(false)}
                   >
                     <span>{link.name}</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isExpertiseDropdownOpen ? 'rotate-180' : ''}`} />
                     
-                    {/* Mega Dropdown for Expertises */}
+                    {/* Dropdown for Expertises */}
                     {isExpertiseDropdownOpen && (
-                      <div className="absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-neutral-border p-2.5 mt-1 animate-fadeIn">
+                      <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-xl border border-neutral-border p-3 mt-1 animate-fadeIn z-50">
                         <div className="text-[10px] font-bold text-neutral-muted uppercase tracking-wider px-3 py-1 border-b border-neutral-border/60 mb-1">
                           Nos 5 Pôles d'Intervention
                         </div>
@@ -161,9 +160,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
                               if (onSelectExpertise) onSelectExpertise(exp.id);
                               handleNavClick('#expertises');
                             }}
-                            className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-primary-50 transition-colors group/item text-left"
+                            className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-primary-50 transition-colors group/item text-left"
                           >
-                            <div className="mt-0.5 p-1 rounded-md bg-neutral-soft group-hover/item:bg-white transition-colors">
+                            <div className="mt-0.5 p-1.5 rounded-lg bg-neutral-soft group-hover/item:bg-white transition-colors">
                               {getExpertiseIcon(exp.id)}
                             </div>
                             <div>
@@ -186,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
                       e.preventDefault();
                       handleNavClick(link.href);
                     }}
-                    className="text-xs lg:text-sm font-semibold text-neutral-text hover:text-primary-500 transition-colors py-2"
+                    className="text-sm font-semibold text-neutral-text hover:text-primary-500 transition-colors py-2 whitespace-nowrap"
                   >
                     {link.name}
                   </a>
@@ -196,12 +195,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
           </div>
 
           {/* Desktop Right CTAs */}
-          <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0 ml-4">
             <a
               href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(COMPANY_INFO.whatsappDefaultMsg)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-qhse-500/30 text-qhse-700 bg-qhse-50 hover:bg-qhse-500 hover:text-white text-xs font-bold transition-all shadow-2xs"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-qhse-500/30 text-qhse-700 bg-qhse-50 hover:bg-qhse-500 hover:text-white text-xs font-bold transition-all shadow-2xs whitespace-nowrap"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               <span>WhatsApp</span>
@@ -213,7 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
                 e.preventDefault();
                 handleNavClick('#contact');
               }}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold tracking-wide uppercase transition-all shadow-xs active:scale-95"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold tracking-wide uppercase transition-all shadow-xs active:scale-95 whitespace-nowrap"
             >
               <AlertCircle className="w-3.5 h-3.5" />
               <span>Demander un Audit</span>
@@ -221,7 +220,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
           </div>
 
           {/* Mobile Menu Toggle Button */}
-          <div className="flex items-center gap-1.5 xl:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <a
               href={`tel:${COMPANY_INFO.phones[0].raw}`}
               className="p-2 rounded-lg bg-primary-50 text-primary-600 hover:bg-primary-100 transition-colors"
@@ -232,7 +231,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-neutral-text hover:text-primary-500 hover:bg-neutral-soft focus:outline-none transition-colors"
+              className="p-2.5 rounded-lg text-neutral-text hover:text-primary-500 hover:bg-neutral-soft focus:outline-none transition-colors"
               aria-label="Menu principal"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -243,7 +242,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-neutral-border px-4 pt-3 pb-5 space-y-2.5 animate-fadeIn shadow-lg">
+          <div className="lg:hidden bg-white border-b border-neutral-border px-4 pt-3 pb-5 space-y-2.5 animate-fadeIn shadow-lg">
             <div className="space-y-1">
               {navLinks.map((link) => (
                 <a
@@ -253,7 +252,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSelectExpertise }) => {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="block px-3 py-2 rounded-lg text-xs sm:text-sm font-bold text-neutral-text hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                  className="block px-3 py-2.5 rounded-lg text-sm font-bold text-neutral-text hover:bg-primary-50 hover:text-primary-600 transition-colors"
                 >
                   {link.name}
                 </a>
