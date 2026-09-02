@@ -4,13 +4,11 @@ import { CaseStudies } from '../components/home/CaseStudies';
 import { BrochureModal } from '../components/home/BrochureModal';
 import { 
   Award, 
-  ShieldCheck, 
   FileText, 
   Flame, 
   Utensils, 
   Anchor, 
   Building2, 
-  ArrowRight,
   Download
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
