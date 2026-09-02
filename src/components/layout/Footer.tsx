@@ -144,6 +144,8 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-6">
+            <Link to="/" className="hover:text-white transition-colors">Accueil</Link>
+            <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
             <Link to="/a-propos" className="hover:text-white transition-colors">À Propos</Link>
             <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
             <Link to="/contact" className="hover:text-white transition-colors">Mentions Légales</Link>

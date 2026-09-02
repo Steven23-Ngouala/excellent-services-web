@@ -30,6 +30,7 @@ export const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   const navLinks = [
+    { name: 'Accueil', path: '/' },
     { name: 'À Propos', path: '/a-propos' },
     { name: 'Expertises', path: '/expertises' },
     { name: 'Secteurs', path: '/secteurs' },
@@ -112,6 +113,7 @@ export const Navbar: React.FC = () => {
               <NavLink
                 key={link.name}
                 to={link.path}
+                end={link.path === '/'}
                 className={({ isActive }) =>
                   `text-sm font-semibold transition-colors py-2 whitespace-nowrap ${
                     isActive ? 'text-primary-600 font-bold' : 'text-neutral-text hover:text-primary-500'
@@ -173,6 +175,7 @@ export const Navbar: React.FC = () => {
                 <NavLink
                   key={link.name}
                   to={link.path}
+                  end={link.path === '/'}
                   className={({ isActive }) =>
                     `block px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${
                       isActive ? 'bg-primary-50 text-primary-600' : 'text-neutral-text hover:bg-neutral-soft'
