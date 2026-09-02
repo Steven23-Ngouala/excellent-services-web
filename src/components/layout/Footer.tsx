@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-qhse-500" />
-            <span>&copy; {new Date().getFullYear()} {COMPANY_INFO.legalName}. Tous droits réservés.</span>
+            <span>&copy; {new Date().getFullYear()} {COMPANY_INFO.legalName} Tous droits réservés.</span>
           </div>
 
           <div className="flex items-center gap-6">
