@@ -99,7 +99,7 @@ export const QuoteCalculator: React.FC = () => {
   };
 
   return (
-    <section id="simulateur" className="py-8 sm:py-12 bg-neutral-soft/50 border-b border-neutral-border relative overflow-hidden">
+    <section id="simulateur" className="pt-4 pb-10 sm:pb-14 bg-white border-b border-neutral-border relative overflow-hidden">
       
       {/* Subtle Glows */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary-100/20 rounded-full blur-3xl pointer-events-none" />
@@ -107,15 +107,11 @@ export const QuoteCalculator: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider mb-2.5 shadow-2xs">
-            <Calculator className="w-3.5 h-3.5 text-primary-500" />
-            <span>Simulateur & Calculateur de Besoins</span>
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-dark tracking-tight">
             Configurez votre estimation d'intervention
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-muted mt-2">
+          <p className="text-xs sm:text-sm text-neutral-muted mt-1.5">
             Sélectionnez vos prestations, votre superficie et votre niveau de contrainte pour obtenir une proposition commerciale chiffrée.
           </p>
         </div>

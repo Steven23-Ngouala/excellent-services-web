@@ -112,7 +112,7 @@ export const DiagnosticWizard: React.FC = () => {
   const severity = calculateSeverity();
 
   return (
-    <section id="diagnostic" className="py-10 sm:py-14 bg-white relative overflow-hidden">
+    <section id="diagnostic" className="pt-8 pb-4 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Wizard Card */}
