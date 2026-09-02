@@ -5,7 +5,6 @@ import {
   ArrowLeft, 
   Send, 
   ShieldAlert, 
-  Clock, 
   Flame, 
   Utensils, 
   Building2, 
@@ -17,7 +16,6 @@ import {
   Crosshair, 
   Check,
   PhoneCall,
-  Mail,
   ShieldCheck
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
