@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DiagnosticWizard } from '../components/home/DiagnosticWizard';
-import { Clock, ShieldAlert, PhoneCall, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { QuoteCalculator } from '../components/home/QuoteCalculator';
+import { Clock, ShieldAlert, PhoneCall, ShieldCheck, CheckCircle2, Calculator } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 
 const DIAGNOSTIC_SLIDES = [
@@ -86,7 +87,7 @@ export const DiagnosticPage: React.FC = () => {
               {DIAGNOSTIC_SLIDES[currentSlide].subtitle}
             </p>
 
-            {/* Action Call Button */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-6">
               <a 
                 href={`tel:${COMPANY_INFO.phones[0].raw}`}
@@ -97,11 +98,11 @@ export const DiagnosticPage: React.FC = () => {
               </a>
 
               <a 
-                href="#diagnostic"
+                href="#simulateur"
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 transition-all backdrop-blur-sm"
               >
-                <ShieldAlert className="w-4 h-4 text-amber-400" />
-                <span>Commencer le Diagnostic</span>
+                <Calculator className="w-4 h-4 text-primary-400" />
+                <span>Simuler une Estimation</span>
               </a>
             </div>
 
@@ -137,8 +138,11 @@ export const DiagnosticPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Diagnostic Wizard Component */}
+      {/* 1. Diagnostic Wizard Component (Urgency & Severity in 3 Steps) */}
       <DiagnosticWizard />
+
+      {/* 2. Quote Calculator Component (Detailed Surface, Frequency & Service Simulation) */}
+      <QuoteCalculator />
     </div>
   );
 };
