@@ -16,7 +16,9 @@ import {
   Trees, 
   Crosshair, 
   Check,
-  MessageSquare
+  PhoneCall,
+  Mail,
+  ShieldCheck
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
 import { DiagnosticState } from '../../types';
@@ -73,25 +75,6 @@ export const DiagnosticWizard: React.FC = () => {
     return { level: 'STANDARD / CONTRAT', color: 'text-qhse-700 bg-qhse-50 border-qhse-200', delay: 'Sous 24 à 48 heures' };
   };
 
-  const getWhatsAppMessage = () => {
-    const selectedEst = establishmentOptions.find(o => o.id === formData.establishmentType)?.title || formData.establishmentType;
-    const selectedNuis = nuisanceOptions.find(o => o.id === formData.nuisanceType)?.title || formData.nuisanceType;
-    const selectedUrg = urgencyOptions.find(o => o.id === formData.urgencyLevel)?.title || formData.urgencyLevel;
-
-    return `*DEMANDE DE DIAGNOSTIC EXPRESS - EXCELLENT SERVICES*
-----------------------------------------
-📍 *Établissement :* ${selectedEst}
-🎯 *Nuisance / Besoin :* ${selectedNuis}
-⚡ *Niveau d'Urgence :* ${selectedUrg}
-🏢 *Société :* ${formData.contactCompany || 'Non renseigné'}
-👤 *Contact :* ${formData.contactName} (${formData.contactPhone})
-✉️ *Email :* ${formData.contactEmail || 'Non renseigné'}
-📍 *Localisation :* ${formData.siteLocation}
-📝 *Détails :* ${formData.additionalDetails || 'Aucun détail supplémentaire'}
-----------------------------------------
-Merci de me rappeler pour organiser l'intervention.`;
-  };
-
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -131,23 +114,9 @@ Merci de me rappeler pour organiser l'intervention.`;
   const severity = calculateSeverity();
 
   return (
-    <section id="diagnostic" className="py-16 sm:py-20 bg-white border-t border-neutral-border relative overflow-hidden">
+    <section id="diagnostic" className="py-10 sm:py-14 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary-50 border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-            <Clock className="w-3.5 h-3.5 text-primary-500" />
-            <span>Simulateur Intelligent</span>
-          </div>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-dark tracking-tight">
-            Diagnostic Express & Estimation
-          </h2>
-          <p className="text-xs sm:text-sm text-neutral-muted mt-2">
-            Identifiez la criticité de votre situation en 3 étapes et obtenez une mobilisation rapide de nos équipes.
-          </p>
-        </div>
-
         {/* Wizard Card */}
         <div className="bg-neutral-soft/50 rounded-3xl shadow-sm border border-neutral-border overflow-hidden">
           
@@ -193,7 +162,7 @@ Merci de me rappeler pour organiser l'intervention.`;
                     Demande de Diagnostic Transmise !
                   </h3>
                   <p className="text-xs sm:text-sm text-neutral-600 max-w-md mx-auto">
-                    Notre ingénieur d'astreinte QHSE vous contacte au <span className="font-bold text-dark">{formData.contactPhone}</span>.
+                    Votre rapport d'évaluation a été transmis à la direction technique. Notre ingénieur d'astreinte QHSE vous contacte au <span className="font-bold text-dark">{formData.contactPhone}</span>.
                   </p>
                 </div>
 
@@ -209,21 +178,25 @@ Merci de me rappeler pour organiser l'intervention.`;
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <a
-                    href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(getWhatsAppMessage())}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-qhse-500 hover:bg-qhse-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+                    href={`tel:${COMPANY_INFO.phones[0].raw}`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md text-center active:scale-95"
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Ouvrir dans WhatsApp</span>
+                    <PhoneCall className="w-4 h-4 animate-pulse" />
+                    <span>Appeler l'Astreinte Directe</span>
                   </a>
 
                   <button
+                    type="button"
                     onClick={() => { setIsSubmitted(false); setCurrentStep(1); }}
-                    className="w-full sm:w-auto px-5 py-3 rounded-xl border border-neutral-border text-xs font-bold text-neutral-700 hover:bg-white"
+                    className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white border border-neutral-border text-xs font-bold text-neutral-700 hover:bg-neutral-soft transition-colors shadow-2xs cursor-pointer"
                   >
                     Nouveau Diagnostic
                   </button>
+                </div>
+
+                <div className="text-[11px] text-neutral-500 flex items-center justify-center gap-1 pt-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-qhse-600 flex-shrink-0" />
+                  <span>Rapport officiel transmis par email à la direction technique</span>
                 </div>
               </div>
             ) : (
