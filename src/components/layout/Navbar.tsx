@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
                       to={link.path}
                       className={({ isActive }) => 
                         `flex items-center gap-1 py-2 text-sm font-semibold transition-colors whitespace-nowrap ${
-                          isActive ? 'text-primary-500 font-bold border-b-2 border-primary-500' : 'text-neutral-text hover:text-primary-500'
+                          isActive ? 'text-primary-600 font-bold' : 'text-neutral-text hover:text-primary-500'
                         }`
                       }
                     >
@@ -182,7 +182,7 @@ export const Navbar: React.FC = () => {
                     to={link.path}
                     className={({ isActive }) =>
                       `text-sm font-semibold transition-colors py-2 whitespace-nowrap ${
-                        isActive ? 'text-primary-500 font-bold border-b-2 border-primary-500' : 'text-neutral-text hover:text-primary-500'
+                        isActive ? 'text-primary-600 font-bold' : 'text-neutral-text hover:text-primary-500'
                       }`
                     }
                   >
