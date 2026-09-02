@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { 
   Calculator, 
   Check, 
-  MessageSquare, 
   FileCheck2, 
-  ShieldCheck
+  ShieldCheck,
+  Send,
+  Clock,
+  Sparkles
 } from 'lucide-react';
-import { COMPANY_INFO } from '../../data/companyInfo';
 import { QuoteCalculationState } from '../../types';
 
 export const QuoteCalculator: React.FC = () => {
@@ -19,7 +20,9 @@ export const QuoteCalculator: React.FC = () => {
   });
 
   const [companyName, setCompanyName] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
   const [contactPhone, setContactPhone] = useState('');
+  const [isCalculated, setIsCalculated] = useState(false);
 
   const serviceOptions = [
     { id: 'deratisation', name: 'Dératisation de précision', desc: 'Postes d’appâtage sécurisés' },
@@ -63,79 +66,68 @@ export const QuoteCalculator: React.FC = () => {
     });
   };
 
-  const getWhatsAppMessage = () => {
-    const selectedServiceNames = serviceOptions
-      .filter((s) => quoteState.services.includes(s.id))
-      .map((s) => s.name)
-      .join(', ');
-
-    const selectedSurface = surfaceRanges.find((r) => r.id === quoteState.surfaceArea)?.label;
-    const selectedFreq = frequencyOptions.find((f) => f.id === quoteState.frequency)?.label;
-    const selectedEnv = environmentOptions.find((e) => e.id === quoteState.environment)?.label;
-
-    return `*DEMANDE DE COTATION PERSONNALISÉE - EXCELLENT SERVICES*
-----------------------------------------
-🏢 *Société :* ${companyName || 'Non précisé'}
-📞 *Contact :* ${contactPhone || 'Non précisé'}
-🛠️ *Services demandés :* ${selectedServiceNames}
-📐 *Superficie estimée :* ${selectedSurface}
-🔄 *Périodicité :* ${selectedFreq}
-🏭 *Environnement :* ${selectedEnv}
-----------------------------------------
-Merci de nous transmettre une proposition commerciale avec les FDS correspondantes.`;
+  const handleRequestQuote = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsCalculated(true);
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-neutral-soft border-t border-neutral-border relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="simulateur" className="py-8 sm:py-12 bg-neutral-soft/50 border-b border-neutral-border relative overflow-hidden">
+      
+      {/* Subtle Glows */}
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary-100/20 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider mb-2.5 shadow-2xs">
             <Calculator className="w-3.5 h-3.5 text-primary-500" />
-            <span>Calculateur B2B</span>
+            <span>Simulateur & Calculateur de Besoins</span>
           </div>
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-dark tracking-tight">
-            Configurez votre Demande de Devis
+          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-dark tracking-tight">
+            Configurez votre estimation d'intervention
           </h2>
           <p className="text-xs sm:text-sm text-neutral-muted mt-2">
-            Sélectionnez vos besoins pour générer immédiatement votre cahier des charges.
+            Sélectionnez vos prestations, votre superficie et votre niveau de contrainte pour obtenir une proposition commerciale chiffrée.
           </p>
         </div>
 
+        {/* Calculator Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
-          {/* Left Configurator Column */}
-          <div className="lg:col-span-8 bg-white rounded-3xl p-5 sm:p-7 border border-neutral-border shadow-xs space-y-6">
+          {/* Left Form (8 Cols) */}
+          <div className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-8 border border-neutral-border shadow-sm space-y-6">
             
             {/* 1. Services */}
             <div>
-              <label className="font-heading font-bold text-sm sm:text-base text-dark block mb-2.5">
-                1. Prestations à inclure :
+              <label className="font-heading font-bold text-xs sm:text-sm text-dark block mb-2.5">
+                1. Prestations requises (sélection multiple) :
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {serviceOptions.map((srv) => {
                   const isChecked = quoteState.services.includes(srv.id);
                   return (
-                    <div
+                    <button
                       key={srv.id}
+                      type="button"
                       onClick={() => toggleService(srv.id)}
-                      className={`p-3 rounded-2xl border-2 cursor-pointer transition-all flex items-start gap-2.5 ${
+                      className={`p-3 rounded-xl border text-left transition-all flex items-start justify-between gap-2 ${
                         isChecked
-                          ? 'border-primary-500 bg-primary-50/40 shadow-2xs'
-                          : 'border-neutral-border hover:border-neutral-300'
+                          ? 'border-primary-500 bg-primary-50/60 ring-1 ring-primary-400/50'
+                          : 'border-neutral-border bg-white hover:bg-neutral-soft'
                       }`}
                     >
-                      <div className={`w-4 h-4 rounded-md border-2 flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                        isChecked ? 'bg-primary-500 border-primary-500 text-white' : 'border-neutral-300'
-                      }`}>
-                        {isChecked && <Check className="w-2.5 h-2.5" />}
-                      </div>
                       <div>
-                        <div className="text-xs sm:text-sm font-bold text-dark">{srv.name}</div>
-                        <div className="text-[10px] text-neutral-500">{srv.desc}</div>
+                        <div className="font-bold text-xs text-dark">{srv.name}</div>
+                        <div className="text-[10px] text-neutral-500 mt-0.5">{srv.desc}</div>
                       </div>
-                    </div>
+                      <div className={`w-4 h-4 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                        isChecked ? 'bg-primary-500 text-white' : 'border border-neutral-300'
+                      }`}>
+                        {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                      </div>
+                    </button>
                   );
                 })}
               </div>
@@ -143,27 +135,26 @@ Merci de nous transmettre une proposition commerciale avec les FDS correspondant
 
             {/* 2. Surface */}
             <div>
-              <label className="font-heading font-bold text-sm sm:text-base text-dark block mb-2.5">
-                2. Superficie de l'emprise :
+              <label className="font-heading font-bold text-xs sm:text-sm text-dark block mb-2.5">
+                2. Superficie ou envergure du site :
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {surfaceRanges.map((surf) => {
                   const isSelected = quoteState.surfaceArea === surf.id;
                   return (
-                    <div
+                    <button
                       key={surf.id}
+                      type="button"
                       onClick={() => setQuoteState({ ...quoteState, surfaceArea: surf.id })}
-                      className={`p-2.5 rounded-xl border-2 cursor-pointer text-center transition-all ${
+                      className={`p-3 rounded-xl border text-center transition-all ${
                         isSelected
-                          ? 'border-primary-500 bg-primary-500 text-white shadow-2xs'
-                          : 'border-neutral-border hover:border-neutral-300 bg-neutral-soft/50'
+                          ? 'border-primary-500 bg-primary-50/60 ring-1 ring-primary-400/50'
+                          : 'border-neutral-border bg-white hover:bg-neutral-soft'
                       }`}
                     >
-                      <div className="font-bold text-xs">{surf.label}</div>
-                      <div className={`text-[9px] mt-0.5 ${isSelected ? 'text-primary-100' : 'text-neutral-500'}`}>
-                        {surf.desc}
-                      </div>
-                    </div>
+                      <div className="font-bold text-xs text-dark">{surf.label}</div>
+                      <div className="text-[10px] text-neutral-500 mt-0.5">{surf.desc}</div>
+                    </button>
                   );
                 })}
               </div>
@@ -173,7 +164,7 @@ Merci de nous transmettre une proposition commerciale avec les FDS correspondant
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="font-heading font-bold text-xs sm:text-sm text-dark block mb-1.5">
-                  3. Périodicité :
+                  3. Fréquence d'intervention :
                 </label>
                 <select
                   value={quoteState.frequency}
@@ -190,7 +181,7 @@ Merci de nous transmettre une proposition commerciale avec les FDS correspondant
 
               <div>
                 <label className="font-heading font-bold text-xs sm:text-sm text-dark block mb-1.5">
-                  4. Environnement :
+                  4. Environnement opérationnel :
                 </label>
                 <select
                   value={quoteState.environment}
@@ -208,13 +199,13 @@ Merci de nous transmettre une proposition commerciale avec les FDS correspondant
 
           </div>
 
-          {/* Right Summary Card */}
-          <div className="lg:col-span-4 bg-gradient-to-br from-dark to-dark-card rounded-3xl p-5 sm:p-6 text-white border border-primary-500 shadow-lg space-y-4">
+          {/* Right Summary Card (4 Cols) */}
+          <div className="lg:col-span-4 bg-gradient-to-br from-dark to-dark-card rounded-3xl p-6 text-white border border-primary-500 shadow-xl space-y-4">
             
             <div className="flex items-center justify-between pb-3 border-b border-dark-border">
               <div className="flex items-center gap-2">
                 <FileCheck2 className="w-4 h-4 text-primary-400" />
-                <span className="font-heading font-bold text-xs sm:text-sm text-white">Récapitulatif</span>
+                <span className="font-heading font-bold text-xs sm:text-sm text-white">Récapitulatif Configuré</span>
               </div>
               <span className="text-[10px] font-mono font-bold bg-primary-500/30 text-primary-300 px-2 py-0.5 rounded border border-primary-400/30">
                 PROFORMA
@@ -240,56 +231,75 @@ Merci de nous transmettre une proposition commerciale avec les FDS correspondant
               </div>
             </div>
 
-            <div className="pt-3 border-t border-dark-border space-y-2.5">
+            <form onSubmit={handleRequestQuote} className="pt-3 border-t border-dark-border space-y-2.5">
               <div>
                 <label className="text-[10px] font-bold text-neutral-300 block mb-1">
                   Nom de votre entreprise :
                 </label>
                 <input
                   type="text"
+                  required
                   placeholder="Ex: Société Pétrolière / Logistique"
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-primary-400"
+                  className="w-full px-3 py-2 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-primary-400"
                 />
               </div>
 
-              <div>
-                <label className="text-[10px] font-bold text-neutral-300 block mb-1">
-                  Téléphone / WhatsApp :
-                </label>
-                <input
-                  type="tel"
-                  placeholder="+242 06 XXX XX XX"
-                  value={contactPhone}
-                  onChange={(e) => setContactPhone(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-primary-400"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                  <label className="text-[10px] font-bold text-neutral-300 block mb-1">
+                    Email professionnel :
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="contact@societe.cg"
+                    value={contactEmail}
+                    onChange={(e) => setContactEmail(e.target.value)}
+                    className="w-full px-2.5 py-2 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-primary-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[10px] font-bold text-neutral-300 block mb-1">
+                    Téléphone direct :
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+242 06 XXX XX XX"
+                    value={contactPhone}
+                    onChange={(e) => setContactPhone(e.target.value)}
+                    className="w-full px-2.5 py-2 rounded-xl bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-primary-400"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-2 pt-1">
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(getWhatsAppMessage())}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 p-3 rounded-xl bg-qhse-500 hover:bg-qhse-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm text-center"
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-                <span>Transmettre par WhatsApp</span>
-              </a>
+              {isCalculated ? (
+                <div className="p-3 rounded-xl bg-qhse-900/60 border border-qhse-500 text-center space-y-1">
+                  <div className="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Demande enregistrée !</span>
+                  </div>
+                  <div className="text-[10px] text-neutral-300">
+                    Notre direction commerciale vous contacte sous 24h ouvrées.
+                  </div>
+                </div>
+              ) : (
+                <button
+                  type="submit"
+                  className="w-full inline-flex items-center justify-center gap-2 p-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95 text-center cursor-pointer"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Demander le Devis Formel</span>
+                </button>
+              )}
+            </form>
 
-              <a
-                href="#contact"
-                className="w-full inline-flex items-center justify-center gap-2 p-2.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm text-center"
-              >
-                <span>Envoyer par Email</span>
-              </a>
-            </div>
-
-            <div className="text-[10px] text-neutral-400 text-center flex items-center justify-center gap-1">
+            <div className="text-[10px] text-neutral-400 text-center flex items-center justify-center gap-1 pt-1">
               <ShieldCheck className="w-3 h-3 text-qhse-400" />
-              <span>Devis sous 24h avec FDS et certificats</span>
+              <span>Réponse officielle sous 24h avec FDS et certificats</span>
             </div>
 
           </div>
