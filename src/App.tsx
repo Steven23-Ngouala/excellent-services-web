@@ -1,65 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/common/ScrollToTop';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { EmergencyFab } from './components/layout/EmergencyFab';
-import { HeroSection } from './components/home/HeroSection';
-import { ClientTrustBar } from './components/home/ClientTrustBar';
-import { ExpertiseGrid } from './components/home/ExpertiseGrid';
-import { WhyChooseUs } from './components/home/WhyChooseUs';
-import { DiagnosticWizard } from './components/home/DiagnosticWizard';
-import { SectorShowcase } from './components/home/SectorShowcase';
-import { CaseStudies } from './components/home/CaseStudies';
-import { QuoteCalculator } from './components/home/QuoteCalculator';
-import { ContactSection } from './components/home/ContactSection';
+
+// Dedicated Pages
+import { HomePage } from './pages/HomePage';
+import { ExpertisesPage } from './pages/ExpertisesPage';
+import { SectorsPage } from './pages/SectorsPage';
+import { ReferencesPage } from './pages/ReferencesPage';
+import { DiagnosticPage } from './pages/DiagnosticPage';
+import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
-  const [selectedExpertiseId, setSelectedExpertiseId] = useState<string | undefined>();
-
-  const handleSelectExpertise = (expertiseId: string) => {
-    setSelectedExpertiseId(expertiseId);
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-white text-neutral-text antialiased selection:bg-primary-500 selection:text-white">
-      {/* Fixed Navigation Bar */}
-      <Navbar onSelectExpertise={handleSelectExpertise} />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="min-h-screen flex flex-col bg-white text-neutral-text antialiased selection:bg-primary-500 selection:text-white">
+        {/* Fixed Navigation Bar */}
+        <Navbar />
 
-      {/* Main Content Sections */}
-      <main className="flex-grow">
-        {/* 1. Hero Section with Key Metrics & Badges */}
-        <HeroSection />
+        {/* Dynamic Route Pages */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/expertises" element={<ExpertisesPage />} />
+            <Route path="/secteurs" element={<SectorsPage />} />
+            <Route path="/references" element={<ReferencesPage />} />
+            <Route path="/diagnostic" element={<DiagnosticPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            {/* Catch-all fallback redirecting to Home */}
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </main>
 
-        {/* 2. Client Trust Bar (Total E&P, Newrest, Carroil, Mafricom...) */}
-        <ClientTrustBar />
+        {/* Global Footer */}
+        <Footer />
 
-        {/* 3. The 5 Core Expertise Poles & Protocol Modals */}
-        <ExpertiseGrid selectedPoleId={selectedExpertiseId} />
-
-        {/* 4. Why Choose Us (Differentiators, Safety, FDS, Habilitations) */}
-        <WhyChooseUs />
-
-        {/* 5. Interactive Diagnostic Wizard (3 Steps Simulator) */}
-        <DiagnosticWizard />
-
-        {/* 6. Industry-specific Sector Showcases */}
-        <SectorShowcase />
-
-        {/* 7. Case Studies & FAQ */}
-        <CaseStudies />
-
-        {/* 8. Interactive Quote Calculator */}
-        <QuoteCalculator />
-
-        {/* 9. Contact & Formal Audit Request + Legal Map */}
-        <ContactSection />
-      </main>
-
-      {/* Footer with Legal Mentions, RCCM, NIU & Map shortcuts */}
-      <Footer />
-
-      {/* 24/7 Emergency & WhatsApp Floating Button */}
-      <EmergencyFab />
-    </div>
+        {/* 24/7 Emergency & WhatsApp Floating Button */}
+        <EmergencyFab />
+      </div>
+    </BrowserRouter>
   );
 };
 
