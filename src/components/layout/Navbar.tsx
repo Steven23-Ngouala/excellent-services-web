@@ -1,27 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { 
-  PhoneCall, 
   ShieldCheck, 
+  PhoneCall, 
+  Clock, 
   Menu, 
   X, 
-  ChevronDown, 
-  Clock, 
-  AlertCircle,
-  FileCheck2,
-  Bug,
-  Droplets,
-  Trees,
-  Crosshair,
-  MessageSquare
+  MessageSquare,
+  AlertCircle
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
-import { EXPERTISES_DATA } from '../../data/expertisesData';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isExpertiseDropdownOpen, setIsExpertiseDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -35,26 +27,15 @@ export const Navbar: React.FC = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsExpertiseDropdownOpen(false);
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Expertises', path: '/expertises', hasDropdown: true },
+    { name: 'Expertises', path: '/expertises' },
     { name: 'Secteurs', path: '/secteurs' },
     { name: 'Références', path: '/references' },
     { name: 'Diagnostic', path: '/diagnostic' },
     { name: 'Contact & Devis', path: '/contact' },
   ];
-
-  const getExpertiseIcon = (id: string) => {
-    switch(id) {
-      case '3d-pest-control': return <Bug className="w-4 h-4 text-primary-600" />;
-      case 'specialized-interventions': return <Crosshair className="w-4 h-4 text-accent-copper" />;
-      case 'sanitation-water': return <Droplets className="w-4 h-4 text-qhse-600" />;
-      case 'environment-green-spaces': return <Trees className="w-4 h-4 text-qhse-700" />;
-      default: return <FileCheck2 className="w-4 h-4 text-dark" />;
-    }
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
@@ -127,68 +108,17 @@ export const Navbar: React.FC = () => {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-shrink-0">
             {navLinks.map((link) => (
-              <div key={link.name} className="relative group">
-                {link.hasDropdown ? (
-                  <div 
-                    className="relative"
-                    onMouseEnter={() => setIsExpertiseDropdownOpen(true)}
-                    onMouseLeave={() => setIsExpertiseDropdownOpen(false)}
-                  >
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive }) => 
-                        `flex items-center gap-1 py-2 text-sm font-semibold transition-colors whitespace-nowrap ${
-                          isActive ? 'text-primary-600 font-bold' : 'text-neutral-text hover:text-primary-500'
-                        }`
-                      }
-                    >
-                      <span>{link.name}</span>
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isExpertiseDropdownOpen ? 'rotate-180' : ''}`} />
-                    </NavLink>
-                    
-                    {/* Solid Dropdown for Expertises */}
-                    {isExpertiseDropdownOpen && (
-                      <div className="absolute top-full left-0 w-80 sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-neutral-200 p-3 mt-1 animate-fadeIn z-50 ring-1 ring-black/5">
-                        <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider px-3 py-1 border-b border-neutral-100 mb-1.5">
-                          Nos 5 Pôles d'Intervention
-                        </div>
-                        <div className="space-y-1">
-                          {EXPERTISES_DATA.map((exp) => (
-                            <Link
-                              key={exp.id}
-                              to="/expertises"
-                              className="flex items-center gap-3 p-2 rounded-xl hover:bg-primary-50 transition-colors group/item text-left"
-                            >
-                              <div className="p-2 rounded-lg bg-neutral-soft group-hover/item:bg-white transition-colors flex-shrink-0">
-                                {getExpertiseIcon(exp.id)}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="text-xs font-bold text-dark group-hover/item:text-primary-600 truncate">
-                                  {exp.title}
-                                </div>
-                                <div className="text-[11px] text-neutral-500 truncate">
-                                  {exp.shortDescription}
-                                </div>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      `text-sm font-semibold transition-colors py-2 whitespace-nowrap ${
-                        isActive ? 'text-primary-600 font-bold' : 'text-neutral-text hover:text-primary-500'
-                      }`
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                )}
-              </div>
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({ isActive }) =>
+                  `text-sm font-semibold transition-colors py-2 whitespace-nowrap ${
+                    isActive ? 'text-primary-600 font-bold' : 'text-neutral-text hover:text-primary-500'
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
             ))}
           </div>
 
