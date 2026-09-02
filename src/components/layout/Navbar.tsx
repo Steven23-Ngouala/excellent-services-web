@@ -39,7 +39,6 @@ export const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Accueil', path: '/' },
     { name: 'Expertises', path: '/expertises', hasDropdown: true },
     { name: 'Secteurs', path: '/secteurs' },
     { name: 'Références', path: '/references' },
