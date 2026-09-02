@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HeroSection } from '../components/home/HeroSection';
 import { ClientTrustBar } from '../components/home/ClientTrustBar';
+import { StandardsBar } from '../components/home/StandardsBar';
+import { InterventionWorkflow } from '../components/home/InterventionWorkflow';
 import { WhyChooseUs } from '../components/home/WhyChooseUs';
+import { BrochureModal } from '../components/home/BrochureModal';
 import { 
   ShieldAlert, 
   AlertTriangle, 
@@ -14,12 +17,16 @@ import {
   CheckCircle, 
   ShieldCheck,
   Building2,
-  FileCheck
+  FileCheck,
+  FileText,
+  Download
 } from 'lucide-react';
 import { EXPERTISES_DATA } from '../data/expertisesData';
 import { SECTORS_DATA } from '../data/sectorsData';
 
 export const HomePage: React.FC = () => {
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+
   const getPoleIcon = (iconName: string) => {
     switch (iconName) {
       case 'ShieldAlert': return <ShieldAlert className="w-5 h-5 text-primary-500" />;
@@ -33,13 +40,16 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-0">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section avec Carousel 3 Images Défilantes */}
       <HeroSection />
 
-      {/* 2. Client Trust Bar */}
+      {/* 2. Bandeau Clients Grands Comptes (Total, Newrest, Carroil, Mafricom) */}
       <ClientTrustBar />
 
-      {/* 3. Nos 5 Pôles d'Expertise (Aperçu avec navigation vers la page dédiée) */}
+      {/* 3. Proposition 2: Bandeau des Normes & Référentiels (HACCP, OMS, ATEX, Agréments) */}
+      <StandardsBar />
+
+      {/* 4. Nos 5 Pôles d'Expertise */}
       <section className="py-16 sm:py-20 bg-white relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
@@ -139,10 +149,50 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Why Choose Us */}
+      {/* 5. Proposition 1: Frise Interactive "Protocole d'Intervention en 4 Étapes" */}
+      <InterventionWorkflow />
+
+      {/* 6. Proposition 5: Section Dédiée Plaquette Corporate & Dossier d'Agrément Fournisseur */}
+      <section className="py-14 sm:py-16 bg-white border-y border-neutral-border relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-neutral-soft via-white to-primary-50/40 rounded-3xl p-6 sm:p-10 border border-primary-500/30 shadow-md flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 text-center lg:text-left max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary-500/10 text-primary-700 text-xs font-bold uppercase tracking-wider border border-primary-500/20">
+                <FileText className="w-3.5 h-3.5 text-primary-600" />
+                <span>Espace Acheteurs & Directeurs QHSE</span>
+              </div>
+              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-dark tracking-tight">
+                Téléchargez notre Plaquette Corporate & Dossier d’Agrément
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                Retrouvez dans un document officiel prêt à imprimer l’ensemble de nos qualifications légales (RCCM, NIU), fiches techniques FDS, protocoles QHSE et références clients pour votre comité d’achats et <em>Vendor List</em>.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto flex-shrink-0">
+              <button
+                onClick={() => setIsBrochureOpen(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-industrial-copper hover:shadow-md active:scale-95"
+              >
+                <Download className="w-4 h-4" />
+                <span>Consulter / Télécharger le PDF</span>
+              </button>
+
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-neutral-soft text-dark font-bold text-xs uppercase tracking-wider border border-neutral-border hover:border-primary-400 transition-all shadow-xs"
+              >
+                <span>Demander une Cotation</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Why Choose Us (Différenciateurs B2B) */}
       <WhyChooseUs />
 
-      {/* 5. Secteurs d'Activité Aperçu */}
+      {/* 8. Secteurs d'Activité Aperçu */}
       <section className="py-16 sm:py-20 bg-white border-t border-neutral-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
@@ -184,7 +234,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Bottom Contact & Diagnostic CTA */}
+      {/* 9. Bottom Contact & Diagnostic CTA */}
       <section className="py-16 bg-gradient-to-r from-dark to-dark-card text-white border-t border-primary-500/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-primary-300 text-xs font-bold uppercase tracking-wider">
@@ -216,6 +266,12 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Corporate Brochure Modal */}
+      <BrochureModal
+        isOpen={isBrochureOpen}
+        onClose={() => setIsBrochureOpen(false)}
+      />
     </div>
   );
 };
