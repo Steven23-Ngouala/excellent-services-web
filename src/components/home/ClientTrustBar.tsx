@@ -85,30 +85,6 @@ export const ClientTrustBar: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Vendor List Banner */}
-        <div className="mt-10 p-6 rounded-2xl bg-gradient-to-r from-dark to-dark-card text-white flex flex-col md:flex-row items-center justify-between gap-5 border border-primary-500/30">
-          <div className="flex items-center gap-3.5 text-center md:text-left">
-            <div className="w-10 h-10 rounded-xl bg-primary-500/20 border border-primary-400/40 flex items-center justify-center flex-shrink-0">
-              <ShieldCheck className="w-5 h-5 text-primary-400" />
-            </div>
-            <div>
-              <div className="font-heading font-bold text-sm sm:text-base text-white">
-                Directeurs QHSE & Achats : Intégrez EXCELLENT SERVICES à votre Vendor List
-              </div>
-              <div className="text-xs text-neutral-300 mt-0.5">
-                Dossier complet disponible sous 24h (RCCM, NIU, FDS, Assurances RCP, Références).
-              </div>
-            </div>
-          </div>
-          <a
-            href="#contact"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95 text-center"
-          >
-            <span>Demander le Dossier d'Agrément</span>
-          </a>
-        </div>
-
       </div>
     </section>
   );
