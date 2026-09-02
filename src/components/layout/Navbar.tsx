@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Banner - QHSE Emergency & Direct Line */}
       <div className="bg-dark text-white text-[11px] py-1.5 px-4 border-b border-dark-border hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-[1700px] mx-auto px-2 sm:px-4 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-1.5 text-qhse-light">
               <ShieldCheck className="w-3.5 h-3.5 text-qhse-500" />
@@ -75,12 +75,12 @@ export const Navbar: React.FC = () => {
           ? 'bg-white/95 backdrop-blur-md shadow-sm py-2.5 border-b border-neutral-border' 
           : 'bg-white py-3.5 shadow-2xs'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between">
           
           {/* Logo & Brand Identity */}
           <Link 
             to="/" 
-            className="flex items-center gap-3 group flex-shrink-0 mr-4"
+            className="flex items-center gap-3 group flex-shrink-0 mr-6 lg:mr-10 xl:mr-14"
           >
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-xs border border-primary-500 bg-white p-0.5 flex-shrink-0 group-hover:scale-105 transition-transform">
               <img 
@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-4 lg:gap-5 xl:gap-7 flex-shrink-0">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
