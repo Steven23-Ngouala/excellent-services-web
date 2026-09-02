@@ -7,8 +7,9 @@ import {
   Send, 
   CheckCircle2, 
   ShieldCheck, 
-  PhoneCall,
-  Building2
+  PhoneCall, 
+  Building2,
+  ExternalLink
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
 
@@ -298,35 +299,46 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Pointe-Noire Map Visual */}
-            <div className="bg-white rounded-3xl p-4 border border-neutral-border shadow-xs">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-primary-500" />
-                  <span className="font-heading font-bold text-[11px] text-dark uppercase tracking-wider">
-                    Pointe-Noire & Région du Kouilou
-                  </span>
-                </div>
-                <span className="text-[9px] font-bold text-qhse-700 bg-qhse-100 px-2 py-0.5 rounded-full">
-                  Base Tchimbamba
-                </span>
-              </div>
-              
-              <div className="w-full h-32 rounded-2xl bg-neutral-soft border border-neutral-border relative overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-grid-pattern opacity-25"></div>
-                <div className="relative z-10 text-center space-y-1 p-3">
-                  <div className="inline-flex items-center justify-center p-2 rounded-full bg-primary-500 text-white shadow-sm">
+            {/* Real Interactive Google Maps Card */}
+            <div className="bg-white rounded-3xl p-5 border border-neutral-border shadow-md space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-xl bg-primary-50 text-primary-600 flex-shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="font-heading font-bold text-xs text-dark">
-                      EXCELLENT SERVICES S.A.R.L.
-                    </div>
-                    <div className="text-[10px] text-neutral-500">
-                      5 Rue des Martyrs, Tchimbamba Aéroport
-                    </div>
+                    <span className="font-heading font-extrabold text-xs sm:text-sm text-dark block leading-tight">
+                      Localisation du Siège Social
+                    </span>
+                    <span className="text-[11px] text-neutral-500 font-medium block mt-0.5">
+                      {COMPANY_INFO.address}, {COMPANY_INFO.city}
+                    </span>
                   </div>
                 </div>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${COMPANY_INFO.address}, ${COMPANY_INFO.city}, République du Congo`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-soft hover:bg-primary-50 text-primary-600 text-xs font-bold transition-colors border border-neutral-border flex-shrink-0"
+                >
+                  <span>Ouvrir Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+              
+              {/* Google Maps Embed iframe */}
+              <div className="w-full h-64 rounded-2xl overflow-hidden border border-neutral-200 relative shadow-inner">
+                <iframe
+                  title="Carte Google Maps EXCELLENT SERVICES Pointe-Noire"
+                  src="https://maps.google.com/maps?q=Pointe-Noire%2C%20Republic%20of%20the%20Congo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                />
               </div>
             </div>
 
