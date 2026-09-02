@@ -6,7 +6,6 @@ import {
   Phone, 
   Mail, 
   Clock, 
-  ArrowUpRight, 
   ChevronRight
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
@@ -98,15 +97,6 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
               ))}
-              <li className="pt-2">
-                <Link
-                  to="/references"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-primary-400 hover:text-white transition-colors"
-                >
-                  <span>Grands comptes (Total, Newrest...)</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
-              </li>
             </ul>
           </div>
 
