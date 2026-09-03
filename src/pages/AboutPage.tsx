@@ -11,8 +11,7 @@ import {
   Mail, 
   CheckCircle2, 
   Flame, 
-  Briefcase,
-  ChevronRight
+  Briefcase
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 
@@ -363,34 +362,6 @@ export const AboutPage: React.FC = () => {
             ))}
           </div>
 
-        </div>
-      </section>
-
-      {/* Call to action footer banner */}
-      <section className="py-12 bg-gradient-to-r from-dark to-dark-card text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
-            Besoin d’intégrer notre entreprise à votre Vendor List ?
-          </h2>
-          <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto">
-            Contactez notre direction pour recevoir notre dossier administratif complet (RCCM, NIU, attestations CNSS, FDS et agréments ministériels).
-          </p>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
-            >
-              <span>Contacter la Direction QHSE</span>
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-            <a
-              href={`tel:${COMPANY_INFO.phones[0].raw}`}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs tracking-wider border border-white/20 transition-all"
-            >
-              <PhoneCall className="w-4 h-4 text-emerald-400" />
-              <span>{COMPANY_INFO.phones[0].number}</span>
-            </a>
-          </div>
         </div>
       </section>
 
