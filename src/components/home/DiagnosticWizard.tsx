@@ -112,9 +112,19 @@ export const DiagnosticWizard: React.FC = () => {
   const severity = calculateSeverity();
 
   return (
-    <section id="diagnostic" className="pt-8 pb-4 bg-white relative overflow-hidden">
+    <section id="diagnostic" className="pt-10 sm:pt-14 pb-6 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-dark tracking-tight">
+            Diagnostic express & évaluation des risques
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-muted mt-1.5">
+            Évaluez en 3 étapes le niveau de criticité de votre site et recevez un plan d'intervention prioritaire.
+          </p>
+        </div>
+
         {/* Wizard Card */}
         <div className="bg-neutral-soft/50 rounded-3xl shadow-sm border border-neutral-border overflow-hidden">
           
