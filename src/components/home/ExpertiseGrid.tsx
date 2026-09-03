@@ -14,6 +14,7 @@ import {
   Clock,
   MessageSquare
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { EXPERTISES_DATA } from '../../data/expertisesData';
 import { COMPANY_INFO } from '../../data/companyInfo';
 import { SubService } from '../../types';
