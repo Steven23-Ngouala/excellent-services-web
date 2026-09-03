@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { EmergencyFab } from './components/layout/EmergencyFab';
 
 // Dedicated Pages
 import { HomePage } from './pages/HomePage';
@@ -40,9 +39,6 @@ export const App: React.FC = () => {
 
         {/* Global Footer */}
         <Footer />
-
-        {/* 24/7 Emergency & WhatsApp Floating Button */}
-        <EmergencyFab />
       </div>
     </BrowserRouter>
   );

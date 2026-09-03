@@ -143,16 +143,8 @@ export const Footer: React.FC = () => {
             <span>&copy; {new Date().getFullYear()} {COMPANY_INFO.legalName} Tous droits réservés.</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <Link to="/" className="hover:text-white transition-colors">Accueil</Link>
-            <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
-            <Link to="/a-propos" className="hover:text-white transition-colors">À Propos</Link>
-            <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
-            <Link to="/contact" className="hover:text-white transition-colors">Mentions Légales</Link>
-            <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
-            <Link to="/diagnostic" className="hover:text-white transition-colors">Diagnostic Express</Link>
-            <span className="w-1 h-1 rounded-full bg-neutral-600"></span>
-            <span>Pointe-Noire, Congo</span>
+          <div className="text-neutral-400 text-xs">
+            <span>{COMPANY_INFO.city}, {COMPANY_INFO.country}</span>
           </div>
         </div>
       </div>
