@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SectorShowcase } from '../components/home/SectorShowcase';
-import { Building2, ArrowRight, Flame, Utensils, Anchor, HeartPulse, ShieldCheck, FileCheck } from 'lucide-react';
+import { Building2, ArrowRight, FileCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const SECTORS_SLIDES = [
@@ -9,45 +9,35 @@ const SECTORS_SLIDES = [
     tag: 'SECTEUR PÉTROLIER',
     title: 'Pétrole, Gaz & Installations Offshore',
     subtitle: 'Interventions ATEX sur plateformes pétrolières, barges de forage, FPSO & terminaux de Djéno/Likouf',
-    image: '/images/sectors/sec_oil_gas.jpg',
-    icon: Flame,
-    color: 'text-primary-400'
+    image: '/images/sectors/sec_oil_gas.jpg'
   },
   {
     id: 2,
     tag: 'AGROALIMENTAIRE & CATERING',
     title: 'Restauration Collective & Normes HACCP',
     subtitle: 'Désinfection, dératisation et conformité stricte pour cuisines industrielles, bases-vie & traiteurs',
-    image: '/images/sectors/sec_catering_haccp.jpg',
-    icon: Utensils,
-    color: 'text-amber-300'
+    image: '/images/sectors/sec_catering_haccp.jpg'
   },
   {
     id: 3,
     tag: 'PORTUAIRE & MARITIME',
     title: 'Logistique, Conteneurs & Milieu Portuaire',
     subtitle: 'Fumigation sous douane, démoustication et sécurisation des dépôts du Port Autonome de Pointe-Noire',
-    image: '/images/sectors/sec_port_logistics.jpg',
-    icon: Anchor,
-    color: 'text-blue-400'
+    image: '/images/sectors/sec_port_logistics.jpg'
   },
   {
     id: 4,
     tag: 'SANTÉ & MÉDICAL',
     title: 'Cliniques, Hôpitaux & Laboratoires',
     subtitle: 'Bio-décontamination, désinfection virucide/bactéricide de blocs opératoires et salles blanches',
-    image: '/images/sectors/sec_health_clinic.jpg',
-    icon: HeartPulse,
-    color: 'text-red-400'
+    image: '/images/sectors/sec_health_clinic.jpg'
   },
   {
     id: 5,
     tag: 'TERTIAIRE & RÉSIDENTIEL',
     title: 'Bureaux d’Affaires & Résidences Sécurisées',
     subtitle: 'Protection antiparasitaire continue et déserpentisation périmétrique pour sièges sociaux & complexes VIP',
-    image: '/images/sectors/sec_commercial_tertiary.jpg',
-    icon: Building2,
-    color: 'text-purple-300'
+    image: '/images/sectors/sec_commercial_tertiary.jpg'
   }
 ];
 
@@ -85,7 +75,7 @@ export const SectorsPage: React.FC = () => {
             </div>
           ))}
 
-          {/* High-density dark gradients for optimal contrast */}
+          {/* Gradients */}
           <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/85 to-dark/65 z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50 z-10" />
           <div className="absolute inset-0 bg-grid-pattern opacity-15 z-10" />
@@ -94,9 +84,9 @@ export const SectorsPage: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="max-w-3xl text-center sm:text-left">
             
-            {/* Sector Active Badge */}
+            {/* Tag Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-500/20 text-primary-300 text-xs font-bold uppercase tracking-wider mb-3.5 border border-primary-400/30 backdrop-blur-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-primary-400" />
+              <Building2 className="w-3.5 h-3.5 text-primary-400" />
               <span>{SECTORS_SLIDES[currentSlide].tag} • Référentiels Métiers</span>
             </div>
 
@@ -129,35 +119,6 @@ export const SectorsPage: React.FC = () => {
               </Link>
             </div>
 
-          </div>
-
-          {/* Interactive 5-Sectors Navigation Pills */}
-          <div className="mt-10 sm:mt-12 pt-6 border-t border-white/15 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
-            {SECTORS_SLIDES.map((slide, idx) => {
-              const Icon = slide.icon;
-              const isActive = idx === currentSlide;
-              return (
-                <button
-                  key={slide.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`p-3 rounded-xl border text-left transition-all backdrop-blur-md flex flex-col justify-between group ${
-                    isActive 
-                      ? 'bg-primary-500/25 border-primary-400 shadow-md ring-1 ring-primary-400/50' 
-                      : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/25'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${isActive ? 'text-primary-300' : 'text-neutral-400'}`}>
-                      0{idx + 1}
-                    </span>
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? slide.color : 'text-neutral-400 group-hover:text-white'}`} />
-                  </div>
-                  <div className={`text-xs font-bold leading-tight line-clamp-1 ${isActive ? 'text-white' : 'text-neutral-300 group-hover:text-white'}`}>
-                    {slide.title.split(',')[0]}
-                  </div>
-                </button>
-              );
-            })}
           </div>
 
         </div>
