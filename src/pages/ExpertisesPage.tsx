@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ExpertiseGrid } from '../components/home/ExpertiseGrid';
 import { InterventionWorkflow } from '../components/home/InterventionWorkflow';
-import { ShieldCheck, FileCheck, PhoneCall, Bug, Crosshair, Droplets, Trees, PackageCheck } from 'lucide-react';
-import { COMPANY_INFO } from '../data/companyInfo';
-import { Link } from 'react-router-dom';
+import { ShieldCheck } from 'lucide-react';
 
 const EXPERTISES_SLIDES = [
   {
@@ -11,45 +9,35 @@ const EXPERTISES_SLIDES = [
     poleCode: 'PÔLE 01',
     title: 'Lutte Antiparasitaire (Traitement 3D)',
     subtitle: 'Dératisation de haute précision, désinsectisation ciblée & désinfection virucide',
-    image: '/images/expertises/exp_1_pest_3d.jpg',
-    icon: Bug,
-    color: 'text-primary-400'
+    image: '/images/expertises/exp_1_pest_3d.jpg'
   },
   {
     id: 2,
     poleCode: 'PÔLE 02',
     title: 'Interventions Spécialisées & Sécurité Périmétrique',
     subtitle: 'Déserpentisation périmétrique, fumigation de conteneurs & démoustication d’envergure',
-    image: '/images/expertises/exp_2_snake_fumigation.jpg',
-    icon: Crosshair,
-    color: 'text-amber-300'
+    image: '/images/expertises/exp_2_snake_fumigation.jpg'
   },
   {
     id: 3,
     poleCode: 'PÔLE 03',
     title: 'Assainissement & Traitement des Eaux',
     subtitle: 'Nettoyage & désinfection de bâches à eau potable, curage de fosses & hydrocurage',
-    image: '/images/expertises/exp_3_water_sanitation.jpg',
-    icon: Droplets,
-    color: 'text-blue-400'
+    image: '/images/expertises/exp_3_water_sanitation.jpg'
   },
   {
     id: 4,
     poleCode: 'PÔLE 04',
     title: 'Environnement & Espaces Verts',
     subtitle: 'Désherbage chimique contrôlé en zones ATEX, élagage & aménagement paysager',
-    image: '/images/expertises/exp_4_green_spaces.jpg',
-    icon: Trees,
-    color: 'text-emerald-400'
+    image: '/images/expertises/exp_4_green_spaces.jpg'
   },
   {
     id: 5,
     poleCode: 'PÔLE 05',
     title: 'Fournitures & Équipements QHSE',
     subtitle: 'Distribution de matériel certifié, raticides homologués, pulvérisateurs & EPI',
-    image: '/images/expertises/exp_5_qhse_supplies.jpg',
-    icon: PackageCheck,
-    color: 'text-purple-300'
+    image: '/images/expertises/exp_5_qhse_supplies.jpg'
   }
 ];
 
@@ -112,56 +100,7 @@ export const ExpertisesPage: React.FC = () => {
               {EXPERTISES_SLIDES[currentSlide].subtitle}
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3.5 pt-6">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
-              >
-                <FileCheck className="w-4 h-4" />
-                <span>Demander un Devis Formel</span>
-              </Link>
-
-              <a
-                href={`tel:${COMPANY_INFO.phones[0].raw}`}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs tracking-wider border border-white/20 transition-all backdrop-blur-sm"
-              >
-                <PhoneCall className="w-4 h-4 text-primary-400" />
-                <span>Astreinte 24/7 : {COMPANY_INFO.phones[0].number}</span>
-              </a>
-            </div>
-
           </div>
-
-          {/* Interactive 5-Poles Navigation Pills */}
-          <div className="mt-10 sm:mt-12 pt-6 border-t border-white/15 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
-            {EXPERTISES_SLIDES.map((slide, idx) => {
-              const Icon = slide.icon;
-              const isActive = idx === currentSlide;
-              return (
-                <button
-                  key={slide.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`p-3 rounded-xl border text-left transition-all backdrop-blur-md flex flex-col justify-between group ${
-                    isActive 
-                      ? 'bg-primary-500/25 border-primary-400 shadow-md ring-1 ring-primary-400/50' 
-                      : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/25'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${isActive ? 'text-primary-300' : 'text-neutral-400'}`}>
-                      {slide.poleCode}
-                    </span>
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? slide.color : 'text-neutral-400 group-hover:text-white'}`} />
-                  </div>
-                  <div className={`text-xs font-bold leading-tight line-clamp-1 ${isActive ? 'text-white' : 'text-neutral-300 group-hover:text-white'}`}>
-                    {slide.title.split('(')[0]}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
         </div>
       </section>
 
