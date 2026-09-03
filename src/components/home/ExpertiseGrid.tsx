@@ -50,7 +50,7 @@ export const ExpertiseGrid: React.FC = () => {
   const activeImage = POLE_IMAGES[activePole.id] || POLE_IMAGES['3d-pest-control'];
 
   return (
-    <section id="expertises" className="pt-8 sm:pt-12 pb-2 sm:pb-3 bg-neutral-soft/50 relative overflow-hidden">
+    <section id="expertises" className="pt-5 sm:pt-8 pb-2 sm:pb-3 bg-neutral-soft/50 relative overflow-hidden">
       
       {/* Background Subtle Ambient Glows */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary-100/20 rounded-full blur-3xl pointer-events-none" />
@@ -164,10 +164,10 @@ export const ExpertiseGrid: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-1 flex flex-col sm:flex-row items-center gap-3">
+              <div className="pt-3 flex justify-center items-center w-full">
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-industrial-copper hover:shadow-md active:scale-95 transition-all text-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-industrial-copper hover:shadow-md active:scale-95 transition-all text-center"
                 >
                   <span>Demander une Intervention pour ce Pôle</span>
                   <ArrowRight className="w-4 h-4" />

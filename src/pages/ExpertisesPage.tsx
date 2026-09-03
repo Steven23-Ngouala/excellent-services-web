@@ -54,7 +54,7 @@ export const ExpertisesPage: React.FC = () => {
   return (
     <div className="pt-24 sm:pt-28 pb-8">
       {/* 5-Slide Animated Hero Banner */}
-      <section className="relative text-white py-16 sm:py-24 border-b border-primary-500/40 overflow-hidden bg-dark">
+      <section className="relative text-white py-10 sm:py-14 border-b border-primary-500/40 overflow-hidden bg-dark">
         
         {/* Background Images Cross-Fade */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

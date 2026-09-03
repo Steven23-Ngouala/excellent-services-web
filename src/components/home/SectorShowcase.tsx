@@ -9,12 +9,10 @@ import {
   CheckCircle2, 
   AlertTriangle,
   ArrowRight,
-  MessageSquare,
   Clock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SECTORS_DATA } from '../../data/sectorsData';
-import { COMPANY_INFO } from '../../data/companyInfo';
 
 const SECTOR_IMAGES: Record<string, string> = {
   'oil-and-gas': '/images/sectors/sec_oil_gas.jpg',
@@ -219,21 +217,11 @@ export const SectorShowcase: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-industrial-copper hover:shadow-md active:scale-95 transition-all text-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-industrial-copper hover:shadow-md active:scale-95 transition-all text-center"
                 >
                   <span>{ctaConfig.buttonText}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-
-                <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(ctaConfig.whatsappText)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl border border-qhse-500/40 text-qhse-800 bg-qhse-50 hover:bg-qhse-500 hover:text-white text-xs font-bold transition-all shadow-2xs text-center"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp Direct</span>
-                </a>
               </div>
 
             </div>
