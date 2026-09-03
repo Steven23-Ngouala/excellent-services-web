@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://excellent-services-web.vercel.app/sitemap.xml
