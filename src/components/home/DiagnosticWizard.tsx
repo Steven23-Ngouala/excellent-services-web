@@ -113,7 +113,7 @@ export const DiagnosticWizard: React.FC = () => {
 
   return (
     <section id="diagnostic" className="pt-10 sm:pt-14 pb-6 bg-white relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
