@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ClientTrustBar } from '../components/home/ClientTrustBar';
+import { StandardsBar } from '../components/home/StandardsBar';
 import { CaseStudies } from '../components/home/CaseStudies';
 import { 
   Award, 
@@ -143,6 +144,9 @@ export const ReferencesPage: React.FC = () => {
 
       {/* Partners Grid Component */}
       <ClientTrustBar />
+
+      {/* Norms & Accreditations (HACCP, OMS, ATEX, Agréments) */}
+      <StandardsBar />
 
       {/* Proven Field Results & Case Studies Component */}
       <CaseStudies />

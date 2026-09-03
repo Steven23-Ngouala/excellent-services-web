@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ExpertiseGrid } from '../components/home/ExpertiseGrid';
+import { InterventionWorkflow } from '../components/home/InterventionWorkflow';
 import { ShieldCheck, FileCheck, PhoneCall, Bug, Crosshair, Droplets, Trees, PackageCheck } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { Link } from 'react-router-dom';
@@ -166,6 +167,9 @@ export const ExpertisesPage: React.FC = () => {
 
       {/* Main Grid Component with Full Technical Details & FDS Modals */}
       <ExpertiseGrid />
+
+      {/* 4-Step QHSE Intervention Methodology */}
+      <InterventionWorkflow />
     </div>
   );
 };
