@@ -14,7 +14,6 @@ import {
   Clock,
   MessageSquare
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { EXPERTISES_DATA } from '../../data/expertisesData';
 import { COMPANY_INFO } from '../../data/companyInfo';
 import { SubService } from '../../types';
@@ -254,27 +253,6 @@ export const ExpertiseGrid: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Global Bottom CTA Simulation Banner */}
-        <div className="mt-12 text-center p-6 sm:p-8 rounded-3xl bg-dark text-white border border-primary-500/30 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="text-center sm:text-left space-y-1">
-            <div className="font-heading font-extrabold text-lg sm:text-xl text-white">
-              Besoin d'un protocole sur-mesure pour votre site à Pointe-Noire ?
-            </div>
-            <div className="text-xs sm:text-sm text-neutral-300">
-              Nos ingénieurs QHSE réalisent un diagnostic d'intervention sous 24h avec devis chiffré.
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
-            <Link
-              to="/diagnostic"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95 text-center"
-            >
-              <span>Simuler un Protocole Express</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
 
       </div>
