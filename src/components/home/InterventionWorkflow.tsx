@@ -55,7 +55,7 @@ export const InterventionWorkflow: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-neutral-soft/50 to-white relative overflow-hidden">
+    <section className="pt-4 sm:pt-6 pb-16 sm:pb-24 bg-gradient-to-b from-neutral-soft/50 to-white relative overflow-hidden">
       {/* Decorative subtle background elements */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary-100/20 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-qhse-100/20 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
@@ -63,7 +63,7 @@ export const InterventionWorkflow: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary-50 border border-primary-200 text-primary-700 text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 text-primary-500" />
             <span>Rigueur & Méthodologie QHSE</span>
