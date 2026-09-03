@@ -214,10 +214,10 @@ export const SectorShowcase: React.FC = () => {
               </div>
 
               {/* 3. Action Block Tailored to the Active Sector */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <div className="pt-3 flex justify-center items-center w-full">
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-industrial-copper hover:shadow-md active:scale-95 transition-all text-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider shadow-industrial-copper hover:shadow-md active:scale-95 transition-all text-center"
                 >
                   <span>{ctaConfig.buttonText}</span>
                   <ArrowRight className="w-4 h-4" />
