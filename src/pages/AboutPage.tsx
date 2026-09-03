@@ -7,11 +7,9 @@ import {
   Clock, 
   Target, 
   Leaf, 
-  PhoneCall, 
   Mail, 
   CheckCircle2, 
-  Flame, 
-  Briefcase
+  Flame
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 
@@ -142,25 +140,6 @@ export const AboutPage: React.FC = () => {
             <p className="text-sm sm:text-base text-neutral-200 max-w-2xl mt-2 leading-relaxed min-h-[48px] transition-all duration-500">
               {ABOUT_SLIDES[currentSlide].subtitle}
             </p>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-6">
-              <Link 
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-industrial-copper active:scale-95"
-              >
-                <Briefcase className="w-4 h-4" />
-                <span>Demander notre Dossier d'Agrément</span>
-              </Link>
-
-              <a 
-                href={`tel:${COMPANY_INFO.phones[0].raw}`}
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs tracking-wider border border-white/20 transition-all backdrop-blur-sm"
-              >
-                <PhoneCall className="w-4 h-4 text-emerald-400" />
-                <span>{COMPANY_INFO.phones[0].number}</span>
-              </a>
-            </div>
 
           </div>
 
