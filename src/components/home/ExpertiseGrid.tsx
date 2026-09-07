@@ -50,7 +50,7 @@ export const ExpertiseGrid: React.FC = () => {
   const activeImage = POLE_IMAGES[activePole.id] || POLE_IMAGES['3d-pest-control'];
 
   return (
-    <section id="expertises" className="pt-5 sm:pt-8 pb-2 sm:pb-3 bg-neutral-soft/50 relative overflow-hidden">
+    <section id="expertises" className="pt-3 sm:pt-4 pb-2 sm:pb-3 bg-neutral-soft/50 relative overflow-hidden">
       
       {/* Background Subtle Ambient Glows */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary-100/20 rounded-full blur-3xl pointer-events-none" />
