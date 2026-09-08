@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HeroSection } from '../components/home/HeroSection';
+import { ClientTrustBar } from '../components/home/ClientTrustBar';
+import { FieldInterventionsShowcase } from '../components/home/FieldInterventionsShowcase';
 import { 
   ArrowRight, 
   ShieldCheck 
@@ -12,7 +14,13 @@ export const HomePage: React.FC = () => {
       {/* 1. Hero Section avec Carousel 3 Images Défilantes & Métriques */}
       <HeroSection />
 
-      {/* 2. Section CTA Directe & Diagnostic */}
+      {/* 2. Logos Clients & Partenaires Majeurs */}
+      <ClientTrustBar />
+
+      {/* 3. Réalisations Terrain & Vidéos d'Interventions Opérationnelles */}
+      <FieldInterventionsShowcase limit={4} />
+
+      {/* 4. Section CTA Directe & Diagnostic */}
       <section className="py-16 bg-gradient-to-r from-dark to-dark-card text-white border-t border-primary-500/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-primary-300 text-xs font-bold uppercase tracking-wider">

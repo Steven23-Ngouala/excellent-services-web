@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ClientTrustBar } from '../components/home/ClientTrustBar';
 import { StandardsBar } from '../components/home/StandardsBar';
 import { CaseStudies } from '../components/home/CaseStudies';
+import { FieldInterventionsShowcase } from '../components/home/FieldInterventionsShowcase';
 import { 
   Award, 
   Flame, 
@@ -147,6 +148,9 @@ export const ReferencesPage: React.FC = () => {
 
       {/* Norms & Accreditations (HACCP, OMS, ATEX, Agréments) */}
       <StandardsBar />
+
+      {/* Operational Field Realizations & Facebook Videos */}
+      <FieldInterventionsShowcase />
 
       {/* Proven Field Results & Case Studies Component */}
       <CaseStudies />
