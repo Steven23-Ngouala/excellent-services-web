@@ -6,13 +6,10 @@ import {
   Wrench, 
   CheckCircle2, 
   ExternalLink, 
-  Play, 
   ArrowRight, 
-  Sparkles,
-  Clock,
-  Video
+  Sparkles
 } from 'lucide-react';
-import { FIELD_INTERVENTIONS, FACEBOOK_REELS_SPOTLIGHT } from '../../data/fieldInterventionsData';
+import { FIELD_INTERVENTIONS } from '../../data/fieldInterventionsData';
 import { COMPANY_INFO } from '../../data/companyInfo';
 
 const FacebookIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
@@ -89,7 +86,7 @@ export const FieldInterventionsShowcase: React.FC<Props> = ({
         )}
 
         {/* Interventions Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {displayedInterventions.map((item) => (
             <div
               key={item.id}
@@ -197,102 +194,6 @@ export const FieldInterventionsShowcase: React.FC<Props> = ({
               </div>
             </div>
           ))}
-        </div>
-
-        {/* ============================================================ */}
-        {/* Facebook Reels & Video Spotlight Interactive Banner */}
-        {/* ============================================================ */}
-        <div className="bg-gradient-to-br from-dark to-dark-card rounded-3xl p-6 sm:p-8 border border-[#1877F2]/40 shadow-xl text-white relative overflow-hidden">
-          
-          {/* Subtle Facebook Accent Glow */}
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#1877F2]/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/10 relative z-10">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1877F2]/20 text-blue-300 text-xs font-bold uppercase tracking-wider mb-2 border border-[#1877F2]/30">
-                <Video className="w-3.5 h-3.5 text-[#1877F2]" />
-                <span>Chaîne & Vidéos d'Intervention en Direct</span>
-              </div>
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-white">
-                Suivez nos Chantiers en Direct sur notre Page Facebook
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-300 mt-1 max-w-2xl">
-                Plus de 64 publications et vidéos réelles montrant nos techniciens en action : pulvérisation thermique, sécurisation anti-reptiles, désinfection de bureaux et assainissement.
-              </p>
-            </div>
-
-            <div className="flex-shrink-0">
-              <a
-                href={COMPANY_INFO.facebookUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95 group"
-              >
-                <FacebookIcon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span>Rejoindre la Page Facebook</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* 4 Interactive Video / Reel Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 relative z-10">
-            {FACEBOOK_REELS_SPOTLIGHT.map((reel) => (
-              <a
-                key={reel.id}
-                href={reel.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#1877F2]/60 transition-all flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/10 text-neutral-300 font-mono">
-                      {reel.category}
-                    </span>
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold">
-                      {reel.duration}
-                    </span>
-                  </div>
-
-                  {/* Simulated Video Preview Badge */}
-                  <div className="h-28 rounded-xl bg-neutral-900 border border-white/10 relative flex items-center justify-center overflow-hidden mb-3 group-hover:border-[#1877F2]/50 transition-colors">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    
-                    <div className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-lg group-hover:scale-115 transition-transform">
-                      <Play className="w-4 h-4 fill-white ml-0.5" />
-                    </div>
-
-                    <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] text-white/80">
-                      <span className="flex items-center gap-1 font-mono">
-                        <Clock className="w-2.5 h-2.5" />
-                        {reel.duration}
-                      </span>
-                      <span className="font-mono text-primary-300 font-bold">
-                        {reel.views} vues
-                      </span>
-                    </div>
-                  </div>
-
-                  <h4 className="font-heading font-bold text-xs text-white group-hover:text-blue-300 transition-colors line-clamp-1">
-                    {reel.title}
-                  </h4>
-                  <p className="text-[11px] text-neutral-400 mt-1 line-clamp-2 leading-relaxed">
-                    {reel.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-neutral-300 group-hover:text-white">
-                  <span className="font-bold flex items-center gap-1">
-                    <FacebookIcon className="w-3 h-3 text-[#1877F2]" />
-                    <span>Regarder</span>
-                  </span>
-                  <ArrowRight className="w-3 h-3 text-primary-400 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </a>
-            ))}
-          </div>
-
         </div>
 
       </div>
