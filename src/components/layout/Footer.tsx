@@ -12,6 +12,12 @@ import { COMPANY_INFO } from '../../data/companyInfo';
 import { EXPERTISES_DATA } from '../../data/expertisesData';
 import { SECTORS_DATA } from '../../data/sectorsData';
 
+const FacebookIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+  </svg>
+);
+
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-dark text-white pt-16 pb-12 border-t-4 border-primary-500 relative overflow-hidden">
@@ -131,6 +137,19 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-2 text-xs text-neutral-400 pt-2 border-t border-dark-border">
               <Clock className="w-3.5 h-3.5 text-qhse-400 flex-shrink-0" />
               <span>Astreinte 24/7 sur site & offshore</span>
+            </div>
+
+            {/* Facebook Official Page Link */}
+            <div className="pt-2">
+              <a
+                href={COMPANY_INFO.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#1877F2]/15 hover:bg-[#1877F2]/25 border border-[#1877F2]/30 text-white transition-all text-xs font-semibold group w-full justify-center"
+              >
+                <FacebookIcon className="w-4 h-4 text-[#1877F2] fill-[#1877F2] group-hover:scale-110 transition-transform" />
+                <span>Page Facebook Officielle</span>
+              </a>
             </div>
           </div>
 

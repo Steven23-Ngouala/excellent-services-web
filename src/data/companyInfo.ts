@@ -24,9 +24,10 @@ export const COMPANY_INFO = {
   whatsappNumber: "242065718274",
   whatsappDefaultMsg: "Bonjour EXCELLENT SERVICES, je souhaite solliciter une intervention urgente ou un devis pour nos installations.",
   
-  // Emails
+  // Emails & Social
   email: "excel.services959@yahoo.fr",
   contactEmail: "excel.services959@yahoo.fr",
+  facebookUrl: "https://www.facebook.com/servicesexcellen/",
   
   // Hours & availability
   workingHours: "24h/24 & 7j/7 pour les urgences et interventions offshore/industrielles",

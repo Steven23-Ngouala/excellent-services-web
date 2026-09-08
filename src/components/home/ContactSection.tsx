@@ -13,6 +13,12 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/companyInfo';
 
+const FacebookIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+  </svg>
+);
+
 export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -327,13 +333,23 @@ export const ContactSection: React.FC = () => {
               </div>
 
               {/* Direct Call Button */}
-              <div className="pt-3">
+              <div className="pt-3 space-y-2.5">
                 <a
                   href={`tel:${COMPANY_INFO.phones[0].raw}`}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-industrial-copper text-center active:scale-95"
                 >
                   <PhoneCall className="w-4 h-4 animate-pulse" />
                   <span>Appeler l'Astreinte Directe</span>
+                </a>
+
+                <a
+                  href={COMPANY_INFO.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1877F2]/15 hover:bg-[#1877F2]/25 border border-[#1877F2]/30 text-white font-bold text-xs uppercase tracking-wider transition-all text-center group"
+                >
+                  <FacebookIcon className="w-4 h-4 text-[#1877F2] fill-[#1877F2] group-hover:scale-110 transition-transform" />
+                  <span>Page Facebook Officielle</span>
                 </a>
               </div>
             </div>
