@@ -17,8 +17,8 @@ export const HomePage: React.FC = () => {
       {/* 2. Logos Clients & Partenaires Majeurs */}
       <ClientTrustBar />
 
-      {/* 3. Réalisations Terrain & Vidéos d'Interventions Opérationnelles */}
-      <FieldInterventionsShowcase limit={4} />
+      {/* 3. Réalisations Terrain Opérationnelles */}
+      <FieldInterventionsShowcase />
 
       {/* 4. Section CTA Directe & Diagnostic */}
       <section className="py-16 bg-gradient-to-r from-dark to-dark-card text-white border-t border-primary-500/40">
